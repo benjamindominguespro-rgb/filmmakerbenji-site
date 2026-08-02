@@ -67,6 +67,10 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 .grid > .fade-in:nth-child(2) { transition-delay: 0.09s; }
 .grid > .fade-in:nth-child(3) { transition-delay: 0.18s; }
 .grid > .fade-in:nth-child(4) { transition-delay: 0.27s; }
+.grid > .fade-in:nth-child(5) { transition-delay: 0.36s; }
+.grid > .fade-in:nth-child(6) { transition-delay: 0.45s; }
+.grid > .fade-in:nth-child(7) { transition-delay: 0.54s; }
+.grid > .fade-in:nth-child(8) { transition-delay: 0.63s; }
 
 /* ============================================
    BUTTONS
