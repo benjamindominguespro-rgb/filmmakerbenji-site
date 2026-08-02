@@ -63,6 +63,11 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   transform: translateY(0);
 }
 
+.grid > .fade-in:nth-child(1) { transition-delay: 0s; }
+.grid > .fade-in:nth-child(2) { transition-delay: 0.09s; }
+.grid > .fade-in:nth-child(3) { transition-delay: 0.18s; }
+.grid > .fade-in:nth-child(4) { transition-delay: 0.27s; }
+
 /* ============================================
    BUTTONS
 ============================================ */
@@ -201,19 +206,14 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   position: absolute;
   inset: 0;
   z-index: 0;
-}
-.hero__bg-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.55;
+  background: radial-gradient(ellipse at 50% 32%, #142235 0%, var(--bg) 68%);
 }
 .hero__overlay {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.65) 45%, var(--bg) 100%),
-    radial-gradient(ellipse at center, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.75) 100%);
+    linear-gradient(180deg, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.3) 45%, var(--bg) 100%),
+    radial-gradient(ellipse at center, rgba(10,10,10,0.05) 0%, rgba(10,10,10,0.5) 100%);
 }
 
 .hero__content {
@@ -222,6 +222,22 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   text-align: center;
   max-width: 860px;
   padding-top: 76px;
+}
+
+.hero__portrait {
+  width: clamp(110px, 18vw, 156px);
+  height: clamp(110px, 18vw, 156px);
+  margin: 0 auto 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 6px rgba(125, 211, 252, 0.08), 0 20px 45px -12px rgba(125, 211, 252, 0.4);
+}
+.hero__portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .hero__title {
@@ -384,7 +400,8 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   border-radius: var(--radius);
   overflow: hidden;
   cursor: pointer;
-  transition: transform var(--transition), border-color var(--transition), background var(--transition);
+  transition: transform var(--transition), border-color var(--transition), background var(--transition),
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .card:hover,
 .card:focus-visible {
@@ -427,7 +444,11 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+}
+.card__thumb.is-loaded {
+  opacity: 1;
 }
 .card:hover .card__thumb {
   transform: scale(1.08);
@@ -572,73 +593,6 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 }
 
 /* ============================================
-   LIGHTBOX
-============================================ */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition);
-  padding: 24px;
-}
-.lightbox.is-open {
-  opacity: 1;
-  pointer-events: auto;
-}
-.lightbox__backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(10, 10, 10, 0.92);
-  backdrop-filter: blur(6px);
-}
-.lightbox__content {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 900px;
-  transform: scale(0.94);
-  transition: transform var(--transition);
-}
-.lightbox.is-open .lightbox__content {
-  transform: scale(1);
-}
-.lightbox__player {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #000;
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.lightbox__player iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-.lightbox__close {
-  position: absolute;
-  top: -48px;
-  right: 0;
-  font-size: 2rem;
-  line-height: 1;
-  color: var(--text);
-  width: 40px;
-  height: 40px;
-  transition: color var(--transition), transform var(--transition);
-}
-.lightbox__close:hover {
-  color: var(--accent);
-  transform: rotate(90deg);
-}
-
-/* ============================================
    REEL LIGHTBOX (Montage Vertical — packs swipeables)
 ============================================ */
 .reel-lightbox {
@@ -674,8 +628,6 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 
 .reel-lightbox__track {
   position: relative;
-  width: min(400px, 88vw);
-  height: min(85vh, 720px);
   border-radius: var(--radius);
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
@@ -683,6 +635,14 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   background: #000;
   transform: scale(0.94);
   transition: transform var(--transition);
+}
+.reel-lightbox__track--vertical {
+  width: min(400px, 88vw);
+  height: min(85vh, 720px);
+}
+.reel-lightbox__track--horizontal {
+  width: min(900px, 92vw, calc(85vh * 16 / 9));
+  aspect-ratio: 16 / 9;
 }
 .reel-lightbox__track::-webkit-scrollbar {
   display: none;
@@ -714,7 +674,7 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 .reel-lightbox__close {
   position: absolute;
   top: 20px;
-  right: max(20px, calc(50% - 200px - 56px));
+  right: 24px;
   font-size: 2rem;
   line-height: 1;
   color: var(--text);
@@ -746,7 +706,7 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 
 .reel-lightbox__nav {
   position: absolute;
-  right: max(20px, calc(50% - 200px - 56px));
+  right: 24px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;

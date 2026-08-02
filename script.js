@@ -101,8 +101,10 @@
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const img = entry.target;
+          img.addEventListener('load', () => img.classList.add('is-loaded'), { once: true });
           img.src = img.dataset.src;
           img.removeAttribute('data-src');
+          if (img.complete) img.classList.add('is-loaded');
           thumbObserver.unobserve(img);
         }
       });
@@ -112,54 +114,7 @@
   thumbs.forEach((img) => thumbObserver.observe(img));
 
   /* =========================================================
-     LIGHTBOX: YouTube video modal (Horizontal / Filmmaking — une seule vidéo)
-  ========================================================= */
-  const lightbox = document.getElementById('lightbox');
-  const lightboxBackdrop = document.getElementById('lightboxBackdrop');
-  const lightboxClose = document.getElementById('lightboxClose');
-  const lightboxPlayer = document.getElementById('lightboxPlayer');
-
-  const openLightbox = (videoId) => {
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
-    iframe.title = 'Lecteur vidéo YouTube';
-    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-    iframe.allowFullscreen = true;
-    lightboxPlayer.innerHTML = '';
-    lightboxPlayer.appendChild(iframe);
-
-    lightbox.classList.add('is-open');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeLightbox = () => {
-    lightbox.classList.remove('is-open');
-    lightbox.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    lightboxPlayer.innerHTML = '';
-  };
-
-  document.querySelectorAll('.card[data-video]').forEach((card) => {
-    const videoId = card.dataset.video;
-
-    card.addEventListener('click', () => openLightbox(videoId));
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openLightbox(videoId);
-      }
-    });
-  });
-
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightboxBackdrop.addEventListener('click', closeLightbox);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
-  });
-
-  /* =========================================================
-     REEL LIGHTBOX: Montage Vertical — packs de vidéos swipeables
+     REEL LIGHTBOX: packs de vidéos swipeables (Vertical / Horizontal / Filmmaking)
   ========================================================= */
   const reelLightbox = document.getElementById('reelLightbox');
   const reelBackdrop = document.getElementById('reelBackdrop');
@@ -206,9 +161,11 @@
     reelDown.disabled = index === reelVideoCount - 1;
   };
 
-  const openReel = (videoIds) => {
+  const openReel = (videoIds, orientation) => {
     reelVideoCount = videoIds.length;
     reelTrack.innerHTML = '';
+    reelTrack.classList.toggle('reel-lightbox__track--vertical', orientation === 'vertical');
+    reelTrack.classList.toggle('reel-lightbox__track--horizontal', orientation === 'horizontal');
     videoIds.forEach((id, i) => reelTrack.appendChild(buildReelSlide(id, i)));
 
     reelLightbox.classList.add('is-open');
@@ -254,15 +211,16 @@
     reelTrack.scrollBy({ top: direction * reelTrack.clientHeight, behavior: 'smooth' });
   };
 
-  document.querySelectorAll('.card--vertical[data-videos]').forEach((card) => {
+  document.querySelectorAll('[data-videos]').forEach((card) => {
     const videoIds = card.dataset.videos.split(',').map((id) => id.trim()).filter(Boolean);
+    const orientation = card.classList.contains('card--horizontal') ? 'horizontal' : 'vertical';
 
     const badge = document.createElement('span');
     badge.className = 'card__badge';
     badge.textContent = videoIds.length > 1 ? `${videoIds.length} vidéos` : '1 vidéo';
     card.querySelector('.card__media').appendChild(badge);
 
-    const open = () => openReel(videoIds);
+    const open = () => openReel(videoIds, orientation);
     card.addEventListener('click', open);
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {

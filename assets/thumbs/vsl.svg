@@ -1,0 +1,12 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#14161a"/>
+  <rect x="24" y="24" width="1232" height="672" rx="18" fill="none" stroke="#2a2d31" stroke-width="3" stroke-dasharray="12 12"/>
+  <g transform="translate(640,320)" fill="none" stroke="#4a5158" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-46" y="-34" width="92" height="68" rx="10"/>
+    <circle cx="-18" cy="-10" r="8" fill="#4a5158" stroke="none"/>
+    <path d="M-46 20 L-12 -6 L12 14 L46 -16 L46 34 L-46 34 Z" fill="#23262a" stroke="none"/>
+  </g>
+  <text x="640" y="418" text-anchor="middle" font-family="'Space Grotesk','Segoe UI',sans-serif" font-size="26" font-weight="600" fill="#7dd3fc" letter-spacing="1">VSL</text>
+  <text x="640" y="444" text-anchor="middle" font-family="'Inter','Segoe UI',sans-serif" font-size="15" font-weight="300" fill="#6b7280">Remplace ce fichier par ta miniature</text>
+  <text x="640" y="680" text-anchor="middle" font-family="'Inter','Segoe UI',sans-serif" font-size="13" font-weight="300" fill="#4a5158">16:9 — assets/thumbs/vsl.jpg</text>
+</svg>

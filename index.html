@@ -36,12 +36,13 @@
 <!-- ================= HERO ================= -->
 <section class="hero" id="hero">
   <div class="hero__bg">
-    <!-- PLACEHOLDER: remplacer par une photo de toi en tournage / plateau -->
-    <img src="https://placehold.co/1920x1080/0a0a0a/1a1a1a?text=%2B" alt="" class="hero__bg-img" id="heroImg">
     <div class="hero__overlay"></div>
   </div>
 
   <div class="hero__content container">
+    <div class="hero__portrait fade-in">
+      <img src="assets/hero.jpg" alt="Portrait de Benjamin, filmmaker" class="hero__portrait-img">
+    </div>
     <h1 class="hero__title fade-in">Je transforme tes idées en <span class="accent">vidéos qui marquent</span></h1>
     <p class="hero__subtitle fade-in">FilmMaker basé en Île-de-France — du montage réseaux sociaux à la captation d'événements, je donne vie à tes projets vidéo.</p>
     <div class="hero__cta fade-in">
@@ -88,7 +89,7 @@
       <!-- data-videos = liste d'IDs YouTube du pack, séparés par des virgules. Ajoute/retire des IDs pour changer le nombre de vidéos du pack. -->
       <article class="card card--vertical fade-in" data-videos="c25E4Pr6YAg,S94_XH8efXk,xu5Vj8Lk7F0" tabindex="0" role="button" aria-label="Voir le pack Shorts VK">
         <div class="card__media">
-          <img class="card__thumb" data-src="https://img.youtube.com/vi/c25E4Pr6YAg/hqdefault.jpg" alt="Miniature Shorts VK" loading="lazy">
+          <img class="card__thumb" data-src="assets/thumbs/ShortVk.jpg" alt="Miniature Shorts VK" loading="lazy">
           <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="card__body">
@@ -97,9 +98,9 @@
         </div>
       </article>
 
-      <article class="card card--vertical fade-in" data-videos="9bZkp7q19f0,L_jWHffIx5E,dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le pack ADS Viral Script">
+      <article class="card card--vertical fade-in" data-videos="0RDK-WHY3Es,OxqndhCCAU0,Tv_Yxw3HZXA" tabindex="0" role="button" aria-label="Voir le pack ADS Viral Script">
         <div class="card__media">
-          <img class="card__thumb" data-src="https://img.youtube.com/vi/9bZkp7q19f0/hqdefault.jpg" alt="Miniature ADS Viral Script" loading="lazy">
+          <img class="card__thumb" data-src="assets/thumbs/AdsViralScript.jpg" alt="Miniature ADS Viral Script" loading="lazy">
           <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="card__body">
@@ -110,7 +111,7 @@
 
       <article class="card card--vertical fade-in" data-videos="e8efNAixBOU,vU4AQWY_5vQ,R8mprEDphx8" tabindex="0" role="button" aria-label="Voir le pack Shorts Maxim">
         <div class="card__media">
-          <img class="card__thumb" data-src="https://img.youtube.com/vi/e8efNAixBOU/hqdefault.jpg" alt="Miniature Shorts Maxim" loading="lazy">
+          <img class="card__thumb" data-src="assets/thumbs/ShortMaxim.jpg" alt="Miniature Shorts Maxim" loading="lazy">
           <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="card__body">
@@ -119,9 +120,9 @@
         </div>
       </article>
 
-      <article class="card card--vertical fade-in" data-videos="L_jWHffIx5E,jNQXAC9IVRw,dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le pack ADS Pôle Sportif">
+      <article class="card card--vertical fade-in" data-videos="KhQKQmDliG4,er0m_RUpfr4,VqQf3grUOeo" tabindex="0" role="button" aria-label="Voir le pack ADS Pôle Sportif">
         <div class="card__media">
-          <img class="card__thumb" data-src="https://img.youtube.com/vi/L_jWHffIx5E/hqdefault.jpg" alt="Miniature ADS Pôle Sportif" loading="lazy">
+          <img class="card__thumb" data-src="assets/thumbs/AdsPoleSportif.jpg" alt="Miniature ADS Pôle Sportif" loading="lazy">
           <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="card__body">
@@ -142,10 +143,13 @@
       <p class="section__subtitle">Montage de contenus longs à partir de rushs fournis — YouTube, VSL, vlogs</p>
     </div>
 
+    <p class="section__hint fade-in">Clique sur un pack pour swiper entre toutes les vidéos du projet.</p>
+
     <div class="grid grid--horizontal">
-      <article class="card card--horizontal fade-in" data-video="dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le projet Projets YouTube">
+      <!-- data-videos = liste d'IDs YouTube du pack, séparés par des virgules. -->
+      <article class="card card--horizontal fade-in" data-videos="l05MuTr3bcM,129adgWSHlo,IFzpy7IZQSw" tabindex="0" role="button" aria-label="Voir le pack Projets YouTube">
         <div class="card__media">
-          <img class="card__thumb" data-src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Miniature Projets YouTube" loading="lazy">
+          <img class="card__thumb" data-src="assets/thumbs/Youtube.jpg" alt="Miniature Projets YouTube" loading="lazy">
           <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="card__body">
@@ -154,9 +158,9 @@
         </div>
       </article>
 
-      <article class="card card--horizontal fade-in" data-video="dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le projet VSL">
+      <article class="card card--horizontal fade-in" data-videos="kzXdAPmZCFQ,qy0skRYwP-Q,2tls6rtIIEw" tabindex="0" role="button" aria-label="Voir le pack VSL">
         <div class="card__media">
-          <img class="card__thumb" data-src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Miniature VSL" loading="lazy">
+          <img class="card__thumb" data-src="assets/thumbs/VSL.jpg" alt="Miniature VSL" loading="lazy">
           <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="card__body">
@@ -165,9 +169,9 @@
         </div>
       </article>
 
-      <article class="card card--horizontal fade-in" data-video="dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le projet Projets Personnels">
+      <article class="card card--horizontal fade-in" data-videos="lKiB2RytwVI,MLq6XAQ8GN8,EPrpfofV-Mw" tabindex="0" role="button" aria-label="Voir le pack Projets Personnels">
         <div class="card__media">
-          <img class="card__thumb" data-src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Miniature Projets Personnels" loading="lazy">
+          <img class="card__thumb" data-src="assets/thumbs/Perso.jpg" alt="Miniature Projets Personnels" loading="lazy">
           <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="card__body">
@@ -188,10 +192,13 @@
       <p class="section__subtitle">De la captation à la livraison finale — je filme et je monte</p>
     </div>
 
+    <p class="section__hint fade-in">Clique sur un pack pour swiper entre toutes les vidéos du projet.</p>
+
     <div class="grid grid--horizontal">
-      <article class="card card--horizontal fade-in" data-video="dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le projet Interviews VK">
+      <!-- data-videos = liste d'IDs YouTube du pack, séparés par des virgules. -->
+      <article class="card card--horizontal fade-in" data-videos="1FOYUFylOfM,bXw-dl4oVo0,_WprU-ZTiVk" tabindex="0" role="button" aria-label="Voir le pack Interviews VK">
         <div class="card__media">
-          <img class="card__thumb" data-src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Miniature Interviews VK" loading="lazy">
+          <img class="card__thumb" data-src="assets/thumbs/Itwvk.jpg" alt="Miniature Interviews VK" loading="lazy">
           <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="card__body">
@@ -200,9 +207,9 @@
         </div>
       </article>
 
-      <article class="card card--horizontal fade-in" data-video="dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le projet Drop Music">
+      <article class="card card--horizontal fade-in" data-videos="rqcfxQfCJMA,BCj-Dx-I8us,we5kJbFnb6s,HXU32qSRI2w" tabindex="0" role="button" aria-label="Voir le pack Drop Music">
         <div class="card__media">
-          <img class="card__thumb" data-src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Miniature Drop Music" loading="lazy">
+          <img class="card__thumb" data-src="assets/thumbs/drop.jpg" alt="Miniature Drop Music" loading="lazy">
           <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="card__body">
@@ -211,9 +218,20 @@
         </div>
       </article>
 
-      <article class="card card--horizontal fade-in" data-video="dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le projet Gala de Boxe Sartrouville">
+      <article class="card card--horizontal fade-in" data-videos="TQNSmwAAUUs,sBjwnqnuZHo" tabindex="0" role="button" aria-label="Voir le pack Mode Storytelling">
         <div class="card__media">
-          <img class="card__thumb" data-src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Miniature Gala de Boxe Sartrouville" loading="lazy">
+          <img class="card__thumb" data-src="assets/thumbs/Storytelling.jpg" alt="Miniature Mode Storytelling" loading="lazy">
+          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">Mode Storytelling</h3>
+          <p class="card__desc">Formats courts façon documentaire, narration incarnée et image plus brute.</p>
+        </div>
+      </article>
+
+      <article class="card card--horizontal fade-in" data-videos="qKFQtUVCL80,W5X2XD7ilCo" tabindex="0" role="button" aria-label="Voir le pack Gala de Boxe Sartrouville">
+        <div class="card__media">
+          <img class="card__thumb" data-src="assets/thumbs/boxe.jpg" alt="Miniature Gala de Boxe Sartrouville" loading="lazy">
           <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="card__body">
@@ -222,9 +240,9 @@
         </div>
       </article>
 
-      <article class="card card--horizontal fade-in" data-video="dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le projet Car Edit">
+      <article class="card card--horizontal fade-in" data-videos="L_jWHffIx5E,jNQXAC9IVRw" tabindex="0" role="button" aria-label="Voir le pack Car Edit">
         <div class="card__media">
-          <img class="card__thumb" data-src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Miniature Car Edit" loading="lazy">
+          <img class="card__thumb" data-src="assets/thumbs/caredit.jpg" alt="Miniature Car Edit" loading="lazy">
           <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <div class="card__body">
@@ -287,15 +305,6 @@
     <span>Conçu &amp; monté avec soin</span>
   </div>
 </footer>
-
-<!-- ================= LIGHTBOX MODAL (Horizontal / Filmmaking) ================= -->
-<div class="lightbox" id="lightbox" aria-hidden="true">
-  <div class="lightbox__backdrop" id="lightboxBackdrop"></div>
-  <div class="lightbox__content">
-    <button class="lightbox__close" id="lightboxClose" aria-label="Fermer la vidéo">&times;</button>
-    <div class="lightbox__player" id="lightboxPlayer"></div>
-  </div>
-</div>
 
 <!-- ================= REEL LIGHTBOX (Montage Vertical — packs swipeables) ================= -->
 <div class="reel-lightbox" id="reelLightbox" aria-hidden="true">
