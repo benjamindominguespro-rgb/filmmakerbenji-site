@@ -208,7 +208,7 @@
   };
 
   const scrollReel = (direction) => {
-    reelTrack.scrollBy({ top: direction * reelTrack.clientHeight, behavior: 'smooth' });
+    reelTrack.scrollBy({ left: direction * reelTrack.clientWidth, behavior: 'smooth' });
   };
 
   document.querySelectorAll('[data-videos]').forEach((card) => {
@@ -237,8 +237,8 @@
   document.addEventListener('keydown', (e) => {
     if (!reelLightbox.classList.contains('is-open')) return;
     if (e.key === 'Escape') closeReel();
-    if (e.key === 'ArrowDown') scrollReel(1);
-    if (e.key === 'ArrowUp') scrollReel(-1);
+    if (e.key === 'ArrowRight') scrollReel(1);
+    if (e.key === 'ArrowLeft') scrollReel(-1);
   });
 
   /* =========================================================

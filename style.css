@@ -352,7 +352,8 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 
 .section__header {
   max-width: 640px;
-  margin-bottom: 56px;
+  margin: 0 auto 56px;
+  text-align: center;
 }
 .section__tag {
   display: inline-block;
@@ -381,6 +382,7 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   font-size: 0.85rem;
   font-weight: 500;
   font-family: var(--font-heading);
+  text-align: center;
   margin: -32px 0 32px;
 }
 
@@ -632,9 +634,12 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 
 .reel-lightbox__track {
   position: relative;
+  display: flex;
+  flex-direction: row;
   border-radius: var(--radius);
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
   scrollbar-width: none;
   background: #000;
   transform: scale(0.94);
@@ -657,6 +662,7 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 
 .reel-slide {
   position: relative;
+  flex: 0 0 100%;
   width: 100%;
   height: 100%;
   scroll-snap-align: start;
@@ -708,17 +714,11 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   padding: 6px 14px;
 }
 
-.reel-lightbox__nav {
+.reel-lightbox__nav-btn {
   position: absolute;
-  right: 24px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.reel-lightbox__nav-btn {
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -727,19 +727,29 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--transition);
+  transition: background var(--transition), border-color var(--transition);
+}
+.reel-lightbox__nav-btn--prev {
+  left: 24px;
+}
+.reel-lightbox__nav-btn--next {
+  right: 24px;
 }
 .reel-lightbox__nav-btn svg {
   width: 18px;
   height: 18px;
-  fill: var(--text);
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 .reel-lightbox__nav-btn:hover:not(:disabled) {
   background: var(--accent);
   border-color: var(--accent);
 }
 .reel-lightbox__nav-btn:hover:not(:disabled) svg {
-  fill: #0a0a0a;
+  stroke: #0a0a0a;
 }
 .reel-lightbox__nav-btn:disabled {
   opacity: 0.3;
@@ -768,7 +778,7 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 }
 
 @media (max-width: 640px) {
-  .reel-lightbox__nav { display: none; }
+  .reel-lightbox__nav-btn { display: none; }
   .reel-lightbox__close { right: 16px; top: 16px; }
   .reel-lightbox__track { width: 100vw; height: 100vh; height: 100svh; border-radius: 0; }
 }
