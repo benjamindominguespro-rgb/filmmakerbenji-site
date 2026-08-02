@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vidéaste Freelance — Monteur &amp; Filmmaker</title>
+<meta name="description" content="FilmMaker basé sur Paris — montage réseaux sociaux, captation d'événements, films d'entreprise.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+<header class="nav" id="nav">
+  <div class="nav__inner container">
+    <a href="#" class="nav__logo">FilmMakerBenji<span>.</span></a>
+
+    <nav class="nav__links" id="navLinks">
+      <a href="#vertical" class="nav__link">Vertical</a>
+      <a href="#horizontal" class="nav__link">Horizontal</a>
+      <a href="#filmmaking" class="nav__link">Filmmaking</a>
+      <a href="#temoignages" class="nav__link">Avis</a>
+      <a href="#contact" class="nav__link nav__link--cta">Contact</a>
+    </nav>
+
+    <button class="nav__burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <div class="hero__bg">
+    <!-- PLACEHOLDER: remplacer par une photo de toi en tournage / plateau -->
+    <img src="https://placehold.co/1920x1080/0a0a0a/1a1a1a?text=%2B" alt="" class="hero__bg-img" id="heroImg">
+    <div class="hero__overlay"></div>
+  </div>
+
+  <div class="hero__content container">
+    <h1 class="hero__title fade-in">Je transforme tes idées en <span class="accent">vidéos qui marquent</span></h1>
+    <p class="hero__subtitle fade-in">FilmMaker basé en Île-de-France — du montage réseaux sociaux à la captation d'événements, je donne vie à tes projets vidéo.</p>
+    <div class="hero__cta fade-in">
+      <a href="#vertical" class="btn btn--primary" data-scroll>Voir mes projets</a>
+      <a href="#contact" class="btn btn--ghost" data-scroll>Me contacter</a>
+    </div>
+  </div>
+
+  <div class="hero__scroll-indicator" aria-hidden="true">
+    <span></span>
+  </div>
+</section>
+
+<!-- ================= PREUVE SOCIALE ================= -->
+<section class="stats">
+  <div class="container stats__grid">
+    <div class="stats__item fade-in">
+      <span class="stats__value"><span class="stats__number" data-count="200">0</span><span class="stats__plus">+</span></span>
+      <span class="stats__label">Vidéos livrées</span>
+    </div>
+    <div class="stats__item fade-in">
+      <span class="stats__value"><span class="stats__number" data-count="10">0</span><span class="stats__plus">+</span></span>
+      <span class="stats__label">Clients accompagnés</span>
+    </div>
+    <div class="stats__item fade-in">
+      <span class="stats__value"><span class="stats__number" data-count="2">0</span><span class="stats__plus">M+</span></span>
+      <span class="stats__label">Vues générées</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VERTICAL MONTAGE ================= -->
+<section class="section" id="vertical">
+  <div class="container">
+    <div class="section__header fade-in">
+      <span class="section__tag">01 — Vertical</span>
+      <h2 class="section__title">Montage Vertical</h2>
+      <p class="section__subtitle">Montage de contenus courts à partir de rushs fournis — Shorts, ADS, capsules</p>
+    </div>
+
+    <p class="section__hint fade-in">Clique sur un pack pour swiper entre toutes les variantes, comme sur les réseaux.</p>
+
+    <div class="grid grid--vertical">
+      <!-- data-videos = liste d'IDs YouTube du pack, séparés par des virgules. Ajoute/retire des IDs pour changer le nombre de vidéos du pack. -->
+      <article class="card card--vertical fade-in" data-videos="c25E4Pr6YAg,S94_XH8efXk,xu5Vj8Lk7F0" tabindex="0" role="button" aria-label="Voir le pack Shorts VK">
+        <div class="card__media">
+          <img class="card__thumb" data-src="https://img.youtube.com/vi/c25E4Pr6YAg/hqdefault.jpg" alt="Miniature Shorts VK" loading="lazy">
+          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">Shorts VK</h3>
+          <p class="card__desc">Série de shorts dynamiques montés pour maximiser la rétention et l'engagement.</p>
+        </div>
+      </article>
+
+      <article class="card card--vertical fade-in" data-videos="9bZkp7q19f0,L_jWHffIx5E,dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le pack ADS Viral Script">
+        <div class="card__media">
+          <img class="card__thumb" data-src="https://img.youtube.com/vi/9bZkp7q19f0/hqdefault.jpg" alt="Miniature ADS Viral Script" loading="lazy">
+          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">ADS Viral Script</h3>
+          <p class="card__desc">Publicité courte au script percutant, pensée pour convertir dès les 3 premières secondes.</p>
+        </div>
+      </article>
+
+      <article class="card card--vertical fade-in" data-videos="e8efNAixBOU,vU4AQWY_5vQ,R8mprEDphx8" tabindex="0" role="button" aria-label="Voir le pack Shorts Maxim">
+        <div class="card__media">
+          <img class="card__thumb" data-src="https://img.youtube.com/vi/e8efNAixBOU/hqdefault.jpg" alt="Miniature Shorts Maxim" loading="lazy">
+          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">Shorts Maxim</h3>
+          <p class="card__desc">Contenu court format lifestyle, rythme soutenu et transitions travaillées.</p>
+        </div>
+      </article>
+
+      <article class="card card--vertical fade-in" data-videos="L_jWHffIx5E,jNQXAC9IVRw,dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le pack ADS Pôle Sportif">
+        <div class="card__media">
+          <img class="card__thumb" data-src="https://img.youtube.com/vi/L_jWHffIx5E/hqdefault.jpg" alt="Miniature ADS Pôle Sportif" loading="lazy">
+          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">ADS Pôle Sportif</h3>
+          <p class="card__desc">Publicité verticale pour un club sportif, montage énergique orienté conversion.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HORIZONTAL MONTAGE ================= -->
+<section class="section section--alt" id="horizontal">
+  <div class="container">
+    <div class="section__header fade-in">
+      <span class="section__tag">02 — Horizontal</span>
+      <h2 class="section__title">Montage Horizontal</h2>
+      <p class="section__subtitle">Montage de contenus longs à partir de rushs fournis — YouTube, VSL, vlogs</p>
+    </div>
+
+    <div class="grid grid--horizontal">
+      <article class="card card--horizontal fade-in" data-video="dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le projet Projets YouTube">
+        <div class="card__media">
+          <img class="card__thumb" data-src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Miniature Projets YouTube" loading="lazy">
+          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">Projets YouTube</h3>
+          <p class="card__desc">Montage long format avec narration structurée, habillage graphique et sound design.</p>
+        </div>
+      </article>
+
+      <article class="card card--horizontal fade-in" data-video="dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le projet VSL">
+        <div class="card__media">
+          <img class="card__thumb" data-src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Miniature VSL" loading="lazy">
+          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">VSL</h3>
+          <p class="card__desc">Video Sales Letter pensée pour maintenir l'attention et guider vers la conversion.</p>
+        </div>
+      </article>
+
+      <article class="card card--horizontal fade-in" data-video="dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le projet Projets Personnels">
+        <div class="card__media">
+          <img class="card__thumb" data-src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Miniature Projets Personnels" loading="lazy">
+          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">Projets Personnels</h3>
+          <p class="card__desc">Explorations créatives libres, terrain d'expérimentation pour de nouveaux styles de montage.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FILMMAKING PUR ================= -->
+<section class="section" id="filmmaking">
+  <div class="container">
+    <div class="section__header fade-in">
+      <span class="section__tag">03 — Filmmaking</span>
+      <h2 class="section__title">Filmmaking Pur</h2>
+      <p class="section__subtitle">De la captation à la livraison finale — je filme et je monte</p>
+    </div>
+
+    <div class="grid grid--horizontal">
+      <article class="card card--horizontal fade-in" data-video="dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le projet Interviews VK">
+        <div class="card__media">
+          <img class="card__thumb" data-src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Miniature Interviews VK" loading="lazy">
+          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">Interviews VK</h3>
+          <p class="card__desc">Captation multicaméra et montage d'interviews, lumière et son soignés.</p>
+        </div>
+      </article>
+
+      <article class="card card--horizontal fade-in" data-video="dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le projet Drop Music">
+        <div class="card__media">
+          <img class="card__thumb" data-src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Miniature Drop Music" loading="lazy">
+          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">Drop Music</h3>
+          <p class="card__desc">Clip promotionnel pour une sortie musicale, image travaillée et étalonnage cinéma.</p>
+        </div>
+      </article>
+
+      <article class="card card--horizontal fade-in" data-video="dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le projet Gala de Boxe Sartrouville">
+        <div class="card__media">
+          <img class="card__thumb" data-src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Miniature Gala de Boxe Sartrouville" loading="lazy">
+          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">Gala de Boxe Sartrouville</h3>
+          <p class="card__desc">Captation événementielle live, montage recap avec rythme et intensité.</p>
+        </div>
+      </article>
+
+      <article class="card card--horizontal fade-in" data-video="dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Voir le projet Car Edit">
+        <div class="card__media">
+          <img class="card__thumb" data-src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Miniature Car Edit" loading="lazy">
+          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">Car Edit</h3>
+          <p class="card__desc">Film automobile, plans dynamiques et sound design pour une esthétique premium.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TÉMOIGNAGES ================= -->
+<section class="section section--alt" id="temoignages">
+  <div class="container">
+    <div class="section__header fade-in">
+      <span class="section__tag">04 — Avis</span>
+      <h2 class="section__title">Témoignages</h2>
+      <p class="section__subtitle">Ce que mes clients disent de notre collaboration</p>
+    </div>
+
+    <div class="testimonials fade-in">
+      <div class="testimonials__item">
+        <img src="https://placehold.co/500x300/111111/7DD3FC?text=T%C3%A9moignage+1" alt="Témoignage client 1" loading="lazy">
+      </div>
+      <div class="testimonials__item">
+        <img src="https://placehold.co/500x300/111111/7DD3FC?text=T%C3%A9moignage+2" alt="Témoignage client 2" loading="lazy">
+      </div>
+      <div class="testimonials__item">
+        <img src="https://placehold.co/500x300/111111/7DD3FC?text=T%C3%A9moignage+3" alt="Témoignage client 3" loading="lazy">
+      </div>
+      <div class="testimonials__item">
+        <img src="https://placehold.co/500x300/111111/7DD3FC?text=T%C3%A9moignage+4" alt="Témoignage client 4" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section class="section cta-final" id="contact">
+  <div class="container cta-final__inner fade-in">
+    <h2 class="cta-final__title">Je transforme tes idées en <span class="accent">vidéos qui marquent</span></h2>
+    <p class="cta-final__subtitle">Un projet en tête ? Discutons-en.</p>
+
+    <div class="cta-final__buttons">
+      <a href="mailto:Benjamin.domingues.pro@gmail.com" class="btn btn--primary">Me contacter par mail</a>
+      <a href="https://wa.me/33760474672" target="_blank" rel="noopener" class="btn btn--ghost">WhatsApp</a>
+    </div>
+
+    <div class="cta-final__socials">
+      <a href="https://www.instagram.com/filmmakerbenji/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+      <a href="https://www.youtube.com/@Lizard.King02" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
+      <a href="https://www.linkedin.com/in/benjamin-domingues-87aa35220/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>&copy; <span id="year"></span> — Tous droits réservés</span>
+    <span>Conçu &amp; monté avec soin</span>
+  </div>
+</footer>
+
+<!-- ================= LIGHTBOX MODAL (Horizontal / Filmmaking) ================= -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox__backdrop" id="lightboxBackdrop"></div>
+  <div class="lightbox__content">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Fermer la vidéo">&times;</button>
+    <div class="lightbox__player" id="lightboxPlayer"></div>
+  </div>
+</div>
+
+<!-- ================= REEL LIGHTBOX (Montage Vertical — packs swipeables) ================= -->
+<div class="reel-lightbox" id="reelLightbox" aria-hidden="true">
+  <div class="reel-lightbox__backdrop" id="reelBackdrop"></div>
+
+  <div class="reel-lightbox__shell">
+    <button class="reel-lightbox__close" id="reelClose" aria-label="Fermer le pack">&times;</button>
+    <span class="reel-lightbox__counter" id="reelCounter">1 / 1</span>
+
+    <div class="reel-lightbox__track" id="reelTrack"></div>
+
+    <div class="reel-lightbox__nav">
+      <button class="reel-lightbox__nav-btn" id="reelUp" aria-label="Vidéo précédente">
+        <svg viewBox="0 0 24 24"><path d="M12 5l-7 7h4v7h6v-7h4z"/></svg>
+      </button>
+      <button class="reel-lightbox__nav-btn" id="reelDown" aria-label="Vidéo suivante">
+        <svg viewBox="0 0 24 24"><path d="M12 19l7-7h-4V5H9v7H5z"/></svg>
+      </button>
+    </div>
+
+    <p class="reel-lightbox__hint" id="reelHint">Swipe pour voir la suite du pack ↑</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

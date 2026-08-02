@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m http.server 8080)",
+      "Bash(where node *)",
+      "Bash(where npx *)",
+      "PowerShell(Get-Command node -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command npx -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command python -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command dotnet -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command ruby -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command caddy -ErrorAction SilentlyContinue)",
+      "PowerShell(powershell -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\Benjamin\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Benjamin-Desktop-CLAUDE-CODE-PORTFOLIO\\\\5c38d57f-4ed5-4391-b871-328a92cd3c2b\\\\scratchpad\\\\serve.ps1\")",
+      "Bash(powershell -Command \"Get-Process -Id \\(Get-NetTCPConnection -LocalPort 8080 -ErrorAction SilentlyContinue\\).OwningProcess -ErrorAction SilentlyContinue | Stop-Process -Force\")",
+      "Bash(powershell -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\Benjamin\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Benjamin-Desktop-CLAUDE-CODE-PORTFOLIO\\\\5c38d57f-4ed5-4391-b871-328a92cd3c2b\\\\scratchpad\\\\serve.ps1\")"
+    ]
+  }
+}
