@@ -201,8 +201,11 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   position: relative;
   min-height: 100svh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 40px;
+  padding: 96px 24px 40px;
   overflow: hidden;
 }
 
@@ -225,7 +228,6 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   z-index: 1;
   text-align: center;
   max-width: 860px;
-  padding-top: 76px;
 }
 
 .hero__portrait {
@@ -269,10 +271,8 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 }
 
 .hero__scroll-indicator {
-  position: absolute;
-  bottom: 36px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  flex-shrink: 0;
   width: 26px;
   height: 42px;
   border: 1.5px solid var(--border);
