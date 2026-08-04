@@ -114,6 +114,55 @@
   thumbs.forEach((img) => thumbObserver.observe(img));
 
   /* =========================================================
+     PACK VIDEO ROWS: flèches de défilement gauche/droite
+  ========================================================= */
+  const packScrollers = [];
+
+  document.querySelectorAll('.pack__videos').forEach((row) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'pack__scroller';
+    row.parentNode.insertBefore(wrapper, row);
+    wrapper.appendChild(row);
+
+    const prevBtn = document.createElement('button');
+    prevBtn.type = 'button';
+    prevBtn.className = 'pack__nav-btn pack__nav-btn--prev';
+    prevBtn.setAttribute('aria-label', 'Défiler vers la gauche');
+    prevBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>';
+
+    const nextBtn = document.createElement('button');
+    nextBtn.type = 'button';
+    nextBtn.className = 'pack__nav-btn pack__nav-btn--next';
+    nextBtn.setAttribute('aria-label', 'Défiler vers la droite');
+    nextBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>';
+
+    wrapper.appendChild(prevBtn);
+    wrapper.appendChild(nextBtn);
+
+    const updateNav = () => {
+      const maxScroll = row.scrollWidth - row.clientWidth;
+      const hasOverflow = maxScroll > 4;
+      wrapper.classList.toggle('pack__scroller--no-overflow', !hasOverflow);
+      prevBtn.disabled = row.scrollLeft <= 4;
+      nextBtn.disabled = row.scrollLeft >= maxScroll - 4;
+    };
+
+    prevBtn.addEventListener('click', () => {
+      row.scrollBy({ left: -Math.max(row.clientWidth * 0.8, 200), behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', () => {
+      row.scrollBy({ left: Math.max(row.clientWidth * 0.8, 200), behavior: 'smooth' });
+    });
+    row.addEventListener('scroll', updateNav, { passive: true });
+
+    packScrollers.push(updateNav);
+  });
+
+  const refreshPackScrollers = () => packScrollers.forEach((update) => update());
+  refreshPackScrollers();
+  window.addEventListener('resize', refreshPackScrollers);
+
+  /* =========================================================
      REEL LIGHTBOX: packs de vidéos swipeables (Vertical / Horizontal / Filmmaking)
   ========================================================= */
   const reelLightbox = document.getElementById('reelLightbox');
@@ -161,7 +210,7 @@
     reelDown.disabled = index === reelVideoCount - 1;
   };
 
-  const openReel = (videoIds, orientation) => {
+  const openReel = (videoIds, orientation, startIndex = 0) => {
     reelVideoCount = videoIds.length;
     reelTrack.innerHTML = '';
     reelTrack.classList.toggle('reel-lightbox__track--vertical', orientation === 'vertical');
@@ -171,8 +220,8 @@
     reelLightbox.classList.add('is-open');
     reelLightbox.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    reelTrack.scrollTop = 0;
-    updateReelNav(0);
+    reelTrack.scrollLeft = startIndex * reelTrack.clientWidth;
+    updateReelNav(startIndex);
 
     reelHint.classList.toggle('is-hidden', reelVideoCount <= 1);
     clearTimeout(reelHintTimer);
@@ -211,23 +260,12 @@
     reelTrack.scrollBy({ left: direction * reelTrack.clientWidth, behavior: 'smooth' });
   };
 
-  document.querySelectorAll('[data-videos]').forEach((card) => {
-    const videoIds = card.dataset.videos.split(',').map((id) => id.trim()).filter(Boolean);
-    const orientation = card.classList.contains('card--horizontal') ? 'horizontal' : 'vertical';
+  document.querySelectorAll('.video-thumb[data-videos]').forEach((thumb) => {
+    const videoIds = thumb.dataset.videos.split(',').map((id) => id.trim()).filter(Boolean);
+    const orientation = thumb.classList.contains('video-thumb--horizontal') ? 'horizontal' : 'vertical';
+    const startIndex = Number(thumb.dataset.index || 0);
 
-    const badge = document.createElement('span');
-    badge.className = 'card__badge';
-    badge.textContent = videoIds.length > 1 ? `${videoIds.length} vidéos` : '1 vidéo';
-    card.querySelector('.card__media').appendChild(badge);
-
-    const open = () => openReel(videoIds, orientation);
-    card.addEventListener('click', open);
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        open();
-      }
-    });
+    thumb.addEventListener('click', () => openReel(videoIds, orientation, startIndex));
   });
 
   reelClose.addEventListener('click', closeReel);

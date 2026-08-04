@@ -84,53 +84,91 @@
       <p class="section__subtitle">Montage de Shorts, ADS et capsules à partir de rushs fournis</p>
     </div>
 
-    <p class="section__hint fade-in">Clique sur un pack pour swiper entre toutes les variantes, comme sur les réseaux.</p>
-
-    <div class="grid grid--vertical">
+    <div class="packs">
       <!-- data-videos = liste d'IDs YouTube du pack, séparés par des virgules. Ajoute/retire des IDs pour changer le nombre de vidéos du pack. -->
-      <article class="card card--vertical fade-in" data-videos="c25E4Pr6YAg,S94_XH8efXk,xu5Vj8Lk7F0" tabindex="0" role="button" aria-label="Voir le pack Shorts VK">
-        <div class="card__media">
-          <img class="card__thumb" data-src="assets/thumbs/ShortVk.jpg" alt="Miniature Shorts VK" loading="lazy">
-          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="pack fade-in">
+        <div class="pack__header">
+          <h3 class="pack__title">Shorts VK</h3>
+          <p class="pack__desc">Série de shorts dynamiques montés pour maximiser la rétention et l'engagement.</p>
         </div>
-        <div class="card__body">
-          <h3 class="card__title">Shorts VK</h3>
-          <p class="card__desc">Série de shorts dynamiques montés pour maximiser la rétention et l'engagement.</p>
+        <div class="pack__videos">
+          <button type="button" class="video-thumb video-thumb--vertical" data-videos="c25E4Pr6YAg,S94_XH8efXk,xu5Vj8Lk7F0" data-index="0" aria-label="Voir la vidéo 1 du pack Shorts VK">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/c25E4Pr6YAg/hqdefault.jpg" alt="Miniature vidéo 1 — Shorts VK" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--vertical" data-videos="c25E4Pr6YAg,S94_XH8efXk,xu5Vj8Lk7F0" data-index="1" aria-label="Voir la vidéo 2 du pack Shorts VK">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/S94_XH8efXk/hqdefault.jpg" alt="Miniature vidéo 2 — Shorts VK" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--vertical" data-videos="c25E4Pr6YAg,S94_XH8efXk,xu5Vj8Lk7F0" data-index="2" aria-label="Voir la vidéo 3 du pack Shorts VK">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/xu5Vj8Lk7F0/hqdefault.jpg" alt="Miniature vidéo 3 — Shorts VK" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
         </div>
-      </article>
+      </div>
 
-      <article class="card card--vertical fade-in" data-videos="0RDK-WHY3Es,OxqndhCCAU0,Tv_Yxw3HZXA" tabindex="0" role="button" aria-label="Voir le pack ADS Viral Script">
-        <div class="card__media">
-          <img class="card__thumb" data-src="assets/thumbs/AdsViralScript.jpg" alt="Miniature ADS Viral Script" loading="lazy">
-          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="pack fade-in">
+        <div class="pack__header">
+          <h3 class="pack__title">ADS Viral Script</h3>
+          <p class="pack__desc">Publicité courte au script percutant, pensée pour convertir dès les 3 premières secondes.</p>
         </div>
-        <div class="card__body">
-          <h3 class="card__title">ADS Viral Script</h3>
-          <p class="card__desc">Publicité courte au script percutant, pensée pour convertir dès les 3 premières secondes.</p>
+        <div class="pack__videos">
+          <button type="button" class="video-thumb video-thumb--vertical" data-videos="0RDK-WHY3Es,OxqndhCCAU0,Tv_Yxw3HZXA" data-index="0" aria-label="Voir la vidéo 1 du pack ADS Viral Script">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/0RDK-WHY3Es/hqdefault.jpg" alt="Miniature vidéo 1 — ADS Viral Script" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--vertical" data-videos="0RDK-WHY3Es,OxqndhCCAU0,Tv_Yxw3HZXA" data-index="1" aria-label="Voir la vidéo 2 du pack ADS Viral Script">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/OxqndhCCAU0/hqdefault.jpg" alt="Miniature vidéo 2 — ADS Viral Script" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--vertical" data-videos="0RDK-WHY3Es,OxqndhCCAU0,Tv_Yxw3HZXA" data-index="2" aria-label="Voir la vidéo 3 du pack ADS Viral Script">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/Tv_Yxw3HZXA/hqdefault.jpg" alt="Miniature vidéo 3 — ADS Viral Script" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
         </div>
-      </article>
+      </div>
 
-      <article class="card card--vertical fade-in" data-videos="e8efNAixBOU,vU4AQWY_5vQ,R8mprEDphx8" tabindex="0" role="button" aria-label="Voir le pack Shorts Maxim">
-        <div class="card__media">
-          <img class="card__thumb" data-src="assets/thumbs/ShortMaxim.jpg" alt="Miniature Shorts Maxim" loading="lazy">
-          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="pack fade-in">
+        <div class="pack__header">
+          <h3 class="pack__title">Shorts Maxim</h3>
+          <p class="pack__desc">Contenu court format lifestyle, rythme soutenu et transitions travaillées.</p>
         </div>
-        <div class="card__body">
-          <h3 class="card__title">Shorts Maxim</h3>
-          <p class="card__desc">Contenu court format lifestyle, rythme soutenu et transitions travaillées.</p>
+        <div class="pack__videos">
+          <button type="button" class="video-thumb video-thumb--vertical" data-videos="e8efNAixBOU,vU4AQWY_5vQ,R8mprEDphx8" data-index="0" aria-label="Voir la vidéo 1 du pack Shorts Maxim">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/e8efNAixBOU/hqdefault.jpg" alt="Miniature vidéo 1 — Shorts Maxim" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--vertical" data-videos="e8efNAixBOU,vU4AQWY_5vQ,R8mprEDphx8" data-index="1" aria-label="Voir la vidéo 2 du pack Shorts Maxim">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/vU4AQWY_5vQ/hqdefault.jpg" alt="Miniature vidéo 2 — Shorts Maxim" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--vertical" data-videos="e8efNAixBOU,vU4AQWY_5vQ,R8mprEDphx8" data-index="2" aria-label="Voir la vidéo 3 du pack Shorts Maxim">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/R8mprEDphx8/hqdefault.jpg" alt="Miniature vidéo 3 — Shorts Maxim" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
         </div>
-      </article>
+      </div>
 
-      <article class="card card--vertical fade-in" data-videos="KhQKQmDliG4,er0m_RUpfr4,VqQf3grUOeo" tabindex="0" role="button" aria-label="Voir le pack ADS Pôle Sportif">
-        <div class="card__media">
-          <img class="card__thumb" data-src="assets/thumbs/AdsPoleSportif.jpg" alt="Miniature ADS Pôle Sportif" loading="lazy">
-          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="pack fade-in">
+        <div class="pack__header">
+          <h3 class="pack__title">ADS Pôle Sportif</h3>
+          <p class="pack__desc">Publicité verticale pour un club sportif, montage énergique orienté conversion.</p>
         </div>
-        <div class="card__body">
-          <h3 class="card__title">ADS Pôle Sportif</h3>
-          <p class="card__desc">Publicité verticale pour un club sportif, montage énergique orienté conversion.</p>
+        <div class="pack__videos">
+          <button type="button" class="video-thumb video-thumb--vertical" data-videos="KhQKQmDliG4,er0m_RUpfr4,VqQf3grUOeo" data-index="0" aria-label="Voir la vidéo 1 du pack ADS Pôle Sportif">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/KhQKQmDliG4/hqdefault.jpg" alt="Miniature vidéo 1 — ADS Pôle Sportif" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--vertical" data-videos="KhQKQmDliG4,er0m_RUpfr4,VqQf3grUOeo" data-index="1" aria-label="Voir la vidéo 2 du pack ADS Pôle Sportif">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/er0m_RUpfr4/hqdefault.jpg" alt="Miniature vidéo 2 — ADS Pôle Sportif" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--vertical" data-videos="KhQKQmDliG4,er0m_RUpfr4,VqQf3grUOeo" data-index="2" aria-label="Voir la vidéo 3 du pack ADS Pôle Sportif">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/VqQf3grUOeo/hqdefault.jpg" alt="Miniature vidéo 3 — ADS Pôle Sportif" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
         </div>
-      </article>
+      </div>
     </div>
   </div>
 </section>
@@ -144,42 +182,70 @@
       <p class="section__subtitle">Montage de vidéos YouTube, VSL et vlogs à partir de rushs fournis</p>
     </div>
 
-    <p class="section__hint fade-in">Clique sur un pack pour swiper entre toutes les vidéos du projet.</p>
-
-    <div class="grid grid--horizontal">
+    <div class="packs">
       <!-- data-videos = liste d'IDs YouTube du pack, séparés par des virgules. -->
-      <article class="card card--horizontal fade-in" data-videos="l05MuTr3bcM,129adgWSHlo,IFzpy7IZQSw" tabindex="0" role="button" aria-label="Voir le pack Projets YouTube">
-        <div class="card__media">
-          <img class="card__thumb" data-src="assets/thumbs/Youtube.jpg" alt="Miniature Projets YouTube" loading="lazy">
-          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="pack fade-in">
+        <div class="pack__header">
+          <h3 class="pack__title">Projets YouTube</h3>
+          <p class="pack__desc">Montage long format avec narration structurée, habillage graphique et sound design.</p>
         </div>
-        <div class="card__body">
-          <h3 class="card__title">Projets YouTube</h3>
-          <p class="card__desc">Montage long format avec narration structurée, habillage graphique et sound design.</p>
+        <div class="pack__videos">
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="l05MuTr3bcM,129adgWSHlo,IFzpy7IZQSw" data-index="0" aria-label="Voir la vidéo 1 du pack Projets YouTube">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/l05MuTr3bcM/hqdefault.jpg" alt="Miniature vidéo 1 — Projets YouTube" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="l05MuTr3bcM,129adgWSHlo,IFzpy7IZQSw" data-index="1" aria-label="Voir la vidéo 2 du pack Projets YouTube">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/129adgWSHlo/hqdefault.jpg" alt="Miniature vidéo 2 — Projets YouTube" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="l05MuTr3bcM,129adgWSHlo,IFzpy7IZQSw" data-index="2" aria-label="Voir la vidéo 3 du pack Projets YouTube">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/IFzpy7IZQSw/hqdefault.jpg" alt="Miniature vidéo 3 — Projets YouTube" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
         </div>
-      </article>
+      </div>
 
-      <article class="card card--horizontal fade-in" data-videos="kzXdAPmZCFQ,qy0skRYwP-Q,2tls6rtIIEw" tabindex="0" role="button" aria-label="Voir le pack VSL">
-        <div class="card__media">
-          <img class="card__thumb" data-src="assets/thumbs/VSL.jpg" alt="Miniature VSL" loading="lazy">
-          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="pack fade-in">
+        <div class="pack__header">
+          <h3 class="pack__title">VSL</h3>
+          <p class="pack__desc">Video Sales Letter pensée pour maintenir l'attention et guider vers la conversion.</p>
         </div>
-        <div class="card__body">
-          <h3 class="card__title">VSL</h3>
-          <p class="card__desc">Video Sales Letter pensée pour maintenir l'attention et guider vers la conversion.</p>
+        <div class="pack__videos">
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="kzXdAPmZCFQ,qy0skRYwP-Q,2tls6rtIIEw" data-index="0" aria-label="Voir la vidéo 1 du pack VSL">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/kzXdAPmZCFQ/hqdefault.jpg" alt="Miniature vidéo 1 — VSL" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="kzXdAPmZCFQ,qy0skRYwP-Q,2tls6rtIIEw" data-index="1" aria-label="Voir la vidéo 2 du pack VSL">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/qy0skRYwP-Q/hqdefault.jpg" alt="Miniature vidéo 2 — VSL" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="kzXdAPmZCFQ,qy0skRYwP-Q,2tls6rtIIEw" data-index="2" aria-label="Voir la vidéo 3 du pack VSL">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/2tls6rtIIEw/hqdefault.jpg" alt="Miniature vidéo 3 — VSL" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
         </div>
-      </article>
+      </div>
 
-      <article class="card card--horizontal fade-in" data-videos="lKiB2RytwVI,MLq6XAQ8GN8,EPrpfofV-Mw" tabindex="0" role="button" aria-label="Voir le pack Projets Personnels">
-        <div class="card__media">
-          <img class="card__thumb" data-src="assets/thumbs/Perso.jpg" alt="Miniature Projets Personnels" loading="lazy">
-          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="pack fade-in">
+        <div class="pack__header">
+          <h3 class="pack__title">Projets Personnels</h3>
+          <p class="pack__desc">Explorations créatives libres, terrain d'expérimentation pour de nouveaux styles de montage.</p>
         </div>
-        <div class="card__body">
-          <h3 class="card__title">Projets Personnels</h3>
-          <p class="card__desc">Explorations créatives libres, terrain d'expérimentation pour de nouveaux styles de montage.</p>
+        <div class="pack__videos">
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="lKiB2RytwVI,MLq6XAQ8GN8,EPrpfofV-Mw" data-index="0" aria-label="Voir la vidéo 1 du pack Projets Personnels">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/lKiB2RytwVI/hqdefault.jpg" alt="Miniature vidéo 1 — Projets Personnels" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="lKiB2RytwVI,MLq6XAQ8GN8,EPrpfofV-Mw" data-index="1" aria-label="Voir la vidéo 2 du pack Projets Personnels">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/MLq6XAQ8GN8/hqdefault.jpg" alt="Miniature vidéo 2 — Projets Personnels" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="lKiB2RytwVI,MLq6XAQ8GN8,EPrpfofV-Mw" data-index="2" aria-label="Voir la vidéo 3 du pack Projets Personnels">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/EPrpfofV-Mw/hqdefault.jpg" alt="Miniature vidéo 3 — Projets Personnels" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
         </div>
-      </article>
+      </div>
     </div>
   </div>
 </section>
@@ -193,64 +259,112 @@
       <p class="section__subtitle">De la captation à la livraison finale, je filme et je monte</p>
     </div>
 
-    <p class="section__hint fade-in">Clique sur un pack pour swiper entre toutes les vidéos du projet.</p>
-
-    <div class="grid grid--horizontal">
+    <div class="packs">
       <!-- data-videos = liste d'IDs YouTube du pack, séparés par des virgules. -->
-      <article class="card card--horizontal fade-in" data-videos="1FOYUFylOfM,bXw-dl4oVo0,_WprU-ZTiVk" tabindex="0" role="button" aria-label="Voir le pack Interviews VK">
-        <div class="card__media">
-          <img class="card__thumb" data-src="assets/thumbs/Itwvk.jpg" alt="Miniature Interviews VK" loading="lazy">
-          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="pack fade-in">
+        <div class="pack__header">
+          <h3 class="pack__title">Interviews VK</h3>
+          <p class="pack__desc">Captation multicaméra et montage d'interviews, lumière et son soignés.</p>
         </div>
-        <div class="card__body">
-          <h3 class="card__title">Interviews VK</h3>
-          <p class="card__desc">Captation multicaméra et montage d'interviews, lumière et son soignés.</p>
+        <div class="pack__videos">
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="1FOYUFylOfM,bXw-dl4oVo0,_WprU-ZTiVk" data-index="0" aria-label="Voir la vidéo 1 du pack Interviews VK">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/1FOYUFylOfM/hqdefault.jpg" alt="Miniature vidéo 1 — Interviews VK" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="1FOYUFylOfM,bXw-dl4oVo0,_WprU-ZTiVk" data-index="1" aria-label="Voir la vidéo 2 du pack Interviews VK">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/bXw-dl4oVo0/hqdefault.jpg" alt="Miniature vidéo 2 — Interviews VK" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="1FOYUFylOfM,bXw-dl4oVo0,_WprU-ZTiVk" data-index="2" aria-label="Voir la vidéo 3 du pack Interviews VK">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/_WprU-ZTiVk/hqdefault.jpg" alt="Miniature vidéo 3 — Interviews VK" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
         </div>
-      </article>
+      </div>
 
-      <article class="card card--horizontal fade-in" data-videos="rqcfxQfCJMA,BCj-Dx-I8us,we5kJbFnb6s,HXU32qSRI2w" tabindex="0" role="button" aria-label="Voir le pack Drop Music">
-        <div class="card__media">
-          <img class="card__thumb" data-src="assets/thumbs/drop.jpg" alt="Miniature Drop Music" loading="lazy">
-          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="pack fade-in">
+        <div class="pack__header">
+          <h3 class="pack__title">Drop Music</h3>
+          <p class="pack__desc">Clip promotionnel pour une sortie musicale, image travaillée et étalonnage cinéma.</p>
         </div>
-        <div class="card__body">
-          <h3 class="card__title">Drop Music</h3>
-          <p class="card__desc">Clip promotionnel pour une sortie musicale, image travaillée et étalonnage cinéma.</p>
+        <div class="pack__videos">
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="rqcfxQfCJMA,BCj-Dx-I8us,we5kJbFnb6s,HXU32qSRI2w" data-index="0" aria-label="Voir la vidéo 1 du pack Drop Music">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/rqcfxQfCJMA/hqdefault.jpg" alt="Miniature vidéo 1 — Drop Music" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="rqcfxQfCJMA,BCj-Dx-I8us,we5kJbFnb6s,HXU32qSRI2w" data-index="1" aria-label="Voir la vidéo 2 du pack Drop Music">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/BCj-Dx-I8us/hqdefault.jpg" alt="Miniature vidéo 2 — Drop Music" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="rqcfxQfCJMA,BCj-Dx-I8us,we5kJbFnb6s,HXU32qSRI2w" data-index="2" aria-label="Voir la vidéo 3 du pack Drop Music">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/we5kJbFnb6s/hqdefault.jpg" alt="Miniature vidéo 3 — Drop Music" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="rqcfxQfCJMA,BCj-Dx-I8us,we5kJbFnb6s,HXU32qSRI2w" data-index="3" aria-label="Voir la vidéo 4 du pack Drop Music">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/HXU32qSRI2w/hqdefault.jpg" alt="Miniature vidéo 4 — Drop Music" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
         </div>
-      </article>
+      </div>
 
-      <article class="card card--horizontal fade-in" data-videos="TQNSmwAAUUs,sBjwnqnuZHo" tabindex="0" role="button" aria-label="Voir le pack Mode Storytelling">
-        <div class="card__media">
-          <img class="card__thumb" data-src="assets/thumbs/Storytelling.jpg" alt="Miniature Mode Storytelling" loading="lazy">
-          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="pack fade-in">
+        <div class="pack__header">
+          <h3 class="pack__title">Mode Storytelling</h3>
+          <p class="pack__desc">Formats courts façon documentaire, narration incarnée et image plus brute.</p>
         </div>
-        <div class="card__body">
-          <h3 class="card__title">Mode Storytelling</h3>
-          <p class="card__desc">Formats courts façon documentaire, narration incarnée et image plus brute.</p>
+        <div class="pack__videos">
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="TQNSmwAAUUs,sBjwnqnuZHo" data-index="0" aria-label="Voir la vidéo 1 du pack Mode Storytelling">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/TQNSmwAAUUs/hqdefault.jpg" alt="Miniature vidéo 1 — Mode Storytelling" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="TQNSmwAAUUs,sBjwnqnuZHo" data-index="1" aria-label="Voir la vidéo 2 du pack Mode Storytelling">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/sBjwnqnuZHo/hqdefault.jpg" alt="Miniature vidéo 2 — Mode Storytelling" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
         </div>
-      </article>
+      </div>
 
-      <article class="card card--horizontal fade-in" data-videos="qKFQtUVCL80,W5X2XD7ilCo" tabindex="0" role="button" aria-label="Voir le pack Gala de Boxe Sartrouville">
-        <div class="card__media">
-          <img class="card__thumb" data-src="assets/thumbs/boxe.jpg" alt="Miniature Gala de Boxe Sartrouville" loading="lazy">
-          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="pack fade-in">
+        <div class="pack__header">
+          <h3 class="pack__title">Gala de Boxe Sartrouville</h3>
+          <p class="pack__desc">Captation événementielle live, montage recap avec rythme et intensité.</p>
         </div>
-        <div class="card__body">
-          <h3 class="card__title">Gala de Boxe Sartrouville</h3>
-          <p class="card__desc">Captation événementielle live, montage recap avec rythme et intensité.</p>
+        <div class="pack__videos">
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="qKFQtUVCL80,W5X2XD7ilCo" data-index="0" aria-label="Voir la vidéo 1 du pack Gala de Boxe Sartrouville">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/qKFQtUVCL80/hqdefault.jpg" alt="Miniature vidéo 1 — Gala de Boxe Sartrouville" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="qKFQtUVCL80,W5X2XD7ilCo" data-index="1" aria-label="Voir la vidéo 2 du pack Gala de Boxe Sartrouville">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/W5X2XD7ilCo/hqdefault.jpg" alt="Miniature vidéo 2 — Gala de Boxe Sartrouville" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
         </div>
-      </article>
+      </div>
 
-      <article class="card card--horizontal fade-in" data-videos="L_jWHffIx5E,jNQXAC9IVRw" tabindex="0" role="button" aria-label="Voir le pack Car Edit">
-        <div class="card__media">
-          <img class="card__thumb" data-src="assets/thumbs/caredit.jpg" alt="Miniature Car Edit" loading="lazy">
-          <div class="card__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="pack fade-in">
+        <div class="pack__header">
+          <h3 class="pack__title">Car Edit</h3>
+          <p class="pack__desc">Film automobile, plans dynamiques et sound design pour une esthétique premium.</p>
         </div>
-        <div class="card__body">
-          <h3 class="card__title">Car Edit</h3>
-          <p class="card__desc">Film automobile, plans dynamiques et sound design pour une esthétique premium.</p>
+        <div class="pack__videos">
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="zbaRKkQ1Noc,d59rEjBKRaM,2mEf71Y5bvg,TSDNNMUtcKE" data-index="0" aria-label="Voir la vidéo 1 du pack Car Edit">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/zbaRKkQ1Noc/hqdefault.jpg" alt="Miniature vidéo 1 — Car Edit" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="zbaRKkQ1Noc,d59rEjBKRaM,2mEf71Y5bvg,TSDNNMUtcKE" data-index="1" aria-label="Voir la vidéo 2 du pack Car Edit">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/d59rEjBKRaM/hqdefault.jpg" alt="Miniature vidéo 2 — Car Edit" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="zbaRKkQ1Noc,d59rEjBKRaM,2mEf71Y5bvg,TSDNNMUtcKE" data-index="2" aria-label="Voir la vidéo 3 du pack Car Edit">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/2mEf71Y5bvg/hqdefault.jpg" alt="Miniature vidéo 3 — Car Edit" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="video-thumb video-thumb--horizontal" data-videos="zbaRKkQ1Noc,d59rEjBKRaM,2mEf71Y5bvg,TSDNNMUtcKE" data-index="3" aria-label="Voir la vidéo 4 du pack Car Edit">
+            <img class="card__thumb" data-src="https://img.youtube.com/vi/TSDNNMUtcKE/hqdefault.jpg" alt="Miniature vidéo 4 — Car Edit" loading="lazy">
+            <span class="video-thumb__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
         </div>
-      </article>
+      </div>
     </div>
   </div>
 </section>
