@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions légales — FilmMakerBenji</title>
+<meta name="description" content="Mentions légales du site filmmakerbenji.com : éditeur, hébergement, propriété intellectuelle et données personnelles.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://filmmakerbenji.com/mentions-legales.html">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<style>
+  .legal {
+    padding: 160px 0 100px;
+    min-height: 100svh;
+  }
+  .legal__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    letter-spacing: -0.01em;
+    margin-bottom: 48px;
+  }
+  .legal__section {
+    max-width: 720px;
+    margin-bottom: 40px;
+  }
+  .legal__section h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .legal__section p {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .legal__section p strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+  .legal__section a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 32px;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    transition: color var(--transition);
+  }
+  .legal__back:hover {
+    color: var(--accent);
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav__inner container">
+    <a href="index.html" class="nav__logo">FilmMakerBenji<span>.</span></a>
+  </div>
+</header>
+
+<main class="section legal">
+  <div class="container">
+    <a href="index.html" class="legal__back">← Retour au site</a>
+
+    <h1 class="legal__title">Mentions légales</h1>
+
+    <div class="legal__section">
+      <h2>Éditeur du site</h2>
+      <p>Le site filmmakerbenji.com est édité par :</p>
+      <p>
+        <strong>Benjamin Domingues</strong><br>
+        Statut : Auto-entrepreneur<br>
+        SIRET : 934 973 405 00012<br>
+        Adresse : 90 avenue de Tobrouk, 78500 Sartrouville<br>
+        Email : <a href="mailto:benjamin.domingues.pro@gmail.com">benjamin.domingues.pro@gmail.com</a>
+      </p>
+    </div>
+
+    <div class="legal__section">
+      <h2>Directeur de la publication</h2>
+      <p>Benjamin Domingues</p>
+    </div>
+
+    <div class="legal__section">
+      <h2>Hébergement</h2>
+      <p>Ce site est hébergé par :</p>
+      <p>
+        <strong>Vercel Inc.</strong><br>
+        340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis<br>
+        Site web : <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a><br>
+        Email : privacy@vercel.com
+      </p>
+    </div>
+
+    <div class="legal__section">
+      <h2>Propriété intellectuelle</h2>
+      <p>L'ensemble des contenus présents sur ce site (textes, images, vidéos, logo, identité visuelle) est la propriété exclusive de Benjamin Domingues, sauf mention contraire. Toute reproduction, distribution, modification, adaptation, retransmission ou publication de ces différents éléments est strictement interdite sans l'accord exprès par écrit de Benjamin Domingues.</p>
+    </div>
+
+    <div class="legal__section">
+      <h2>Données personnelles</h2>
+      <p>Dans le cadre de l'utilisation du site, notamment via les liens de contact (email, WhatsApp), certaines données personnelles peuvent être collectées (nom, adresse email, contenu du message).</p>
+      <p>Ces données sont utilisées uniquement dans le but de répondre à vos demandes et ne sont ni revendues, ni partagées avec des tiers.</p>
+      <p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, d'opposition et de suppression des données vous concernant. Pour exercer ce droit, vous pouvez me contacter à l'adresse suivante : <a href="mailto:benjamin.domingues.pro@gmail.com">benjamin.domingues.pro@gmail.com</a></p>
+    </div>
+
+    <div class="legal__section">
+      <h2>Crédits</h2>
+      <p>Conception et développement : Benjamin Domingues</p>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>&copy; <span id="year"></span> — Tous droits réservés</span>
+    <span>Conçu &amp; monté avec soin</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
