@@ -80,6 +80,7 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 9px;
   padding: 15px 32px;
   border-radius: 999px;
   font-family: var(--font-heading);
@@ -88,6 +89,11 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   letter-spacing: 0.01em;
   transition: all var(--transition);
   white-space: nowrap;
+}
+.btn__icon {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
 }
 
 .btn--primary {
@@ -153,6 +159,9 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 }
 
 .nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   font-family: var(--font-heading);
   font-size: 0.9rem;
   font-weight: 500;
@@ -160,6 +169,10 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   border-radius: 999px;
   color: var(--text-muted);
   transition: color var(--transition), background var(--transition);
+}
+.nav__link .btn__icon {
+  width: 15px;
+  height: 15px;
 }
 .nav__link:hover {
   color: var(--text);
@@ -173,6 +186,28 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 .nav__link--cta:hover {
   background: #a5e2fd;
   color: var(--bg);
+}
+
+.nav__social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  margin-left: 12px;
+  flex-shrink: 0;
+  transition: color var(--transition), border-color var(--transition);
+}
+.nav__social svg {
+  width: 18px;
+  height: 18px;
+}
+.nav__social:hover {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .nav__burger {
