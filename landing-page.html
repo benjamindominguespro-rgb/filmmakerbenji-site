@@ -216,17 +216,83 @@
     height:200px;
     margin:44px 0 8px;
   }
+  .frag-field::before{
+    content:"";
+    position:absolute;
+    inset:-60px;
+    background:radial-gradient(ellipse 55% 65% at 50% 45%, rgba(56,189,248,0.24), rgba(56,189,248,0.09) 45%, transparent 72%);
+    filter:blur(8px);
+    pointer-events:none;
+  }
+  .particle-layer{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    overflow:visible;
+  }
+  .particle{
+    position:absolute;
+    border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 6px 1px rgba(125,211,252,0.65);
+    animation:particle-drift ease-in-out infinite, particle-twinkle ease-in-out infinite;
+  }
+  @keyframes particle-drift{
+    0%, 100% { transform:translate(0, 0); }
+    50%      { transform:translate(var(--dx, 10px), var(--dy, -14px)); }
+  }
+  @keyframes particle-twinkle{
+    0%, 100% { opacity:.12; }
+    50%      { opacity:.65; }
+  }
+  @media (max-width:640px){
+    .frag-field::before, .particle-layer{ display:none; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    .particle{ animation:none; opacity:.3; }
+  }
   .frag-chip{
     position:absolute;
-    font-family:var(--font-label); font-size:13px; color:var(--text-muted);
-    background:var(--surface);
-    border:1px solid var(--border-strong);
-    border-radius:10px; padding:9px 14px;
+    font-family:var(--font-label); font-size:13px; font-weight:500; color:var(--text);
+    background:
+      linear-gradient(160deg, rgba(255,255,255,0.07), rgba(255,255,255,0.01) 55%),
+      rgba(18,20,26,0.6);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border:1px solid rgba(125,211,252,0.22);
+    border-radius:10px; padding:9px 16px;
     white-space:nowrap;
+    cursor:grab;
+    touch-action:none;
+    user-select:none;
+    box-shadow:0 8px 20px -10px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.07);
+    transition:border-color .2s ease, color .2s ease, background .2s ease, box-shadow .2s ease;
+    animation-name:chip-float;
+    animation-timing-function:ease-in-out;
+    animation-iteration-count:infinite;
+  }
+  .frag-chip:hover{
+    border-color:rgba(125,211,252,0.38);
+    box-shadow:0 8px 20px -10px rgba(0,0,0,0.6), 0 0 8px -3px rgba(125,211,252,0.25), inset 0 1px 0 rgba(255,255,255,0.07);
+  }
+  @keyframes chip-float{
+    0%   { transform:translate(0px, 0px) rotate(var(--r, 0deg)); }
+    25%  { transform:translate(6px, -8px) rotate(calc(var(--r, 0deg) + 2deg)); }
+    50%  { transform:translate(-4px, 6px) rotate(calc(var(--r, 0deg) - 2deg)); }
+    75%  { transform:translate(-8px, -4px) rotate(calc(var(--r, 0deg) + 1deg)); }
+    100% { transform:translate(0px, 0px) rotate(var(--r, 0deg)); }
+  }
+  .frag-chip.is-dragging{
+    cursor:grabbing;
+    z-index:2;
+    animation-play-state:paused;
   }
   @media (max-width:640px){
     .frag-field{ height:auto; position:static; display:flex; flex-wrap:wrap; gap:10px; margin:36px 0; }
-    .frag-chip{ position:static !important; transform:none !important; }
+    .frag-chip{ position:static !important; transform:none !important; animation:none !important; cursor:default; touch-action:auto; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    .frag-chip{ animation:none; }
   }
 
   .merge-arrow{
@@ -243,6 +309,12 @@
     padding:20px 22px;
     display:flex; align-items:center; gap:14px;
     max-width:420px; margin:0 auto;
+    transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+  }
+  .unified-card:hover{
+    border-color:var(--accent-strong);
+    box-shadow:0 0 26px -4px rgba(125,211,252,0.6);
+    transform:translateY(-2px);
   }
   .unified-card .dot{
     width:9px; height:9px; border-radius:50%; background:var(--accent); flex-shrink:0;
@@ -267,31 +339,29 @@
     border:1px dashed var(--border-strong); border-radius:8px; padding:7px 12px;
   }
 
-  /* ---------- Trust logos ---------- */
-  .trust{
-    margin-top:40px; padding-top:32px; border-top:1px solid var(--border);
+  /* ---------- Trust: client row ---------- */
+  .client-row{
+    display:flex; flex-wrap:wrap;
+    justify-content:center;
+    gap:28px 40px;
+    margin-top:24px;
   }
-  .trust-label{
-    font-family:var(--font-label); font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase;
-    color:var(--text-dim); margin-bottom:18px;
+  .client-marquee__item{
+    display:flex; align-items:center; gap:12px;
   }
-  .trust-logos{
-    display:flex; flex-wrap:wrap; gap:28px 36px; align-items:center;
+  .client-marquee__item img{
+    height:38px; width:auto; max-width:110px;
+    object-fit:contain;
+    border-radius:8px;
+    border:1px solid var(--border-strong);
+    background:var(--bg);
+    padding:4px 8px;
   }
-  .trust-logos span{
+  .client-marquee__item span{
     font-family:var(--font-display); font-weight:700; font-size:16px;
-    color:var(--text-dim);
+    color:var(--text-muted);
+    white-space:nowrap;
     letter-spacing:-0.01em;
-  }
-
-  .testi-placeholder{
-    margin-top:28px;
-    border:1px dashed var(--border-strong);
-    border-radius:14px;
-    padding:22px 24px;
-    font-size:14px;
-    color:var(--text-dim);
-    font-style:italic;
   }
 
   /* ---------- Offer cards ---------- */
@@ -446,13 +516,37 @@
         <h2 style="font-size:clamp(26px,4vw,36px);">Une compétence, un prestataire.</h2>
         <p class="lede" style="margin-top:18px;">La plupart des marques finissent par gérer plusieurs interlocuteurs vidéo en parallèle, pas par choix, mais parce que personne ne couvre tout.</p>
 
-        <div class="frag-field" aria-hidden="true">
-          <div class="frag-chip" style="left:2%; top:8%; transform:rotate(-3deg);">Monteur Shorts</div>
-          <div class="frag-chip" style="left:38%; top:0%; transform:rotate(2deg);">Cameraman événementiel</div>
-          <div class="frag-chip" style="right:4%; top:12%; transform:rotate(-2deg);">Motion designer</div>
-          <div class="frag-chip" style="left:14%; top:56%; transform:rotate(2deg);">Monteur format long</div>
-          <div class="frag-chip" style="right:8%; top:60%; transform:rotate(-3deg);">Monteur de secours</div>
-          <div class="frag-chip" style="left:48%; top:64%; transform:rotate(1deg);">Monteur d'ads</div>
+        <div class="frag-field" id="fragField">
+          <div class="particle-layer" aria-hidden="true">
+            <span class="particle" style="left:6%; top:20%; width:3px; height:3px; --dx:12px; --dy:-16px; animation-duration:9.5s, 4.2s; animation-delay:-1.5s, -0.6s;"></span>
+            <span class="particle" style="left:16%; top:70%; width:2px; height:2px; --dx:-10px; --dy:-12px; animation-duration:7.8s, 3.6s; animation-delay:-4.1s, -2.1s;"></span>
+            <span class="particle" style="left:27%; top:38%; width:4px; height:4px; --dx:14px; --dy:10px; animation-duration:11s, 5.1s; animation-delay:-6.4s, -1.2s;"></span>
+            <span class="particle" style="left:34%; top:85%; width:2px; height:2px; --dx:-8px; --dy:-18px; animation-duration:8.6s, 3.9s; animation-delay:-2.8s, -3.3s;"></span>
+            <span class="particle" style="left:45%; top:12%; width:3px; height:3px; --dx:10px; --dy:16px; animation-duration:10.2s, 4.6s; animation-delay:-5.5s, -0.9s;"></span>
+            <span class="particle" style="left:52%; top:55%; width:2px; height:2px; --dx:-14px; --dy:8px; animation-duration:9s, 3.4s; animation-delay:-3.6s, -2.6s;"></span>
+            <span class="particle" style="left:61%; top:28%; width:3px; height:3px; --dx:9px; --dy:-14px; animation-duration:12s, 5.4s; animation-delay:-7.2s, -1.7s;"></span>
+            <span class="particle" style="left:68%; top:80%; width:2px; height:2px; --dx:-12px; --dy:-10px; animation-duration:8.1s, 3.8s; animation-delay:-1.9s, -0.4s;"></span>
+            <span class="particle" style="left:74%; top:46%; width:4px; height:4px; --dx:13px; --dy:12px; animation-duration:10.8s, 4.9s; animation-delay:-4.9s, -2.9s;"></span>
+            <span class="particle" style="left:83%; top:15%; width:2px; height:2px; --dx:-9px; --dy:15px; animation-duration:9.7s, 4.1s; animation-delay:-2.3s, -1.4s;"></span>
+            <span class="particle" style="left:90%; top:63%; width:3px; height:3px; --dx:11px; --dy:-11px; animation-duration:11.4s, 5.2s; animation-delay:-6.1s, -3.7s;"></span>
+            <span class="particle" style="left:95%; top:35%; width:2px; height:2px; --dx:-13px; --dy:-9px; animation-duration:8.4s, 3.5s; animation-delay:-0.8s, -1.1s;"></span>
+            <span class="particle" style="left:12%; top:48%; width:2px; height:2px; --dx:8px; --dy:-13px; animation-duration:9.3s, 4.3s; animation-delay:-3.2s, -0.2s;"></span>
+            <span class="particle" style="left:58%; top:6%; width:2px; height:2px; --dx:-11px; --dy:14px; animation-duration:10.5s, 4.7s; animation-delay:-5.8s, -2.4s;"></span>
+            <span class="particle" style="left:3%; top:55%; width:2px; height:2px; --dx:9px; --dy:11px; animation-duration:8.9s, 4s; animation-delay:-2.6s, -1.8s;"></span>
+            <span class="particle" style="left:21%; top:6%; width:3px; height:3px; --dx:-12px; --dy:9px; animation-duration:10.1s, 4.5s; animation-delay:-4.7s, -0.7s;"></span>
+            <span class="particle" style="left:31%; top:60%; width:2px; height:2px; --dx:8px; --dy:-15px; animation-duration:9.1s, 3.7s; animation-delay:-1.3s, -2.9s;"></span>
+            <span class="particle" style="left:41%; top:92%; width:2px; height:2px; --dx:-9px; --dy:-11px; animation-duration:8.3s, 4.4s; animation-delay:-6.6s, -1.6s;"></span>
+            <span class="particle" style="left:49%; top:32%; width:3px; height:3px; --dx:11px; --dy:13px; animation-duration:11.6s, 5s; animation-delay:-3.9s, -0.5s;"></span>
+            <span class="particle" style="left:64%; top:58%; width:2px; height:2px; --dx:-10px; --dy:14px; animation-duration:9.8s, 3.9s; animation-delay:-5.2s, -3.1s;"></span>
+            <span class="particle" style="left:71%; top:10%; width:2px; height:2px; --dx:12px; --dy:-9px; animation-duration:10.7s, 4.8s; animation-delay:-2.1s, -1s;"></span>
+            <span class="particle" style="left:87%; top:88%; width:3px; height:3px; --dx:-13px; --dy:-12px; animation-duration:11.9s, 5.3s; animation-delay:-7.5s, -2.7s;"></span>
+          </div>
+          <div class="frag-chip" style="left:2%; top:8%; --r:-3deg; animation-duration:6.2s; animation-delay:-1.1s;">Monteur Shorts</div>
+          <div class="frag-chip" style="left:38%; top:0%; --r:2deg; animation-duration:5.6s; animation-delay:-3.4s;">Cameraman événementiel</div>
+          <div class="frag-chip" style="right:4%; top:12%; --r:-2deg; animation-duration:6.8s; animation-delay:-0.6s;">Motion designer</div>
+          <div class="frag-chip" style="left:14%; top:56%; --r:2deg; animation-duration:6.0s; animation-delay:-2.2s;">Monteur format long</div>
+          <div class="frag-chip" style="right:8%; top:60%; --r:-3deg; animation-duration:7.2s; animation-delay:-4.0s;">Monteur de secours</div>
+          <div class="frag-chip" style="left:43%; top:64%; --r:0deg; animation-duration:5.9s; animation-delay:-1.8s;">Monteur d'ads</div>
         </div>
 
         <div class="merge-arrow" aria-hidden="true">
@@ -475,14 +569,13 @@
     <section style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
       <div class="container">
         <div class="eyebrow">Ils m'ont fait confiance</div>
-        <div class="trust-logos">
-          <span>Drop Music</span>
-          <span>VK Studio</span>
-          <span>Corentin Boesch</span>
-          <span>Pôle Sportif</span>
-        </div>
-        <div class="testi-placeholder">
-          « [Emplacement réservé : ajoute ici un vrai témoignage client] »<br>Nom, marque
+        <div class="client-row">
+          <div class="client-marquee__item"><img src="assets/logos/drop-music.png" alt="Drop Music" loading="lazy"><span>Drop Music</span></div>
+          <div class="client-marquee__item"><img src="assets/logos/vk-studio.png" alt="VK Studio" loading="lazy"><span>VK Studio</span></div>
+          <div class="client-marquee__item"><img src="assets/logos/corentin-boesch.jpg" alt="Corentin Boesch" loading="lazy"><span>Corentin Boesch</span></div>
+          <div class="client-marquee__item"><img src="assets/logos/pole-sportif.png" alt="Pôle Sportif" loading="lazy"><span>Pôle Sportif</span></div>
+          <div class="client-marquee__item"><img src="assets/logos/HenriHihacks.png" alt="Henri Hihacks" loading="lazy"><span>Henri Hihacks</span></div>
+          <div class="client-marquee__item"><img src="assets/logos/e2ouard.jpg" alt="E2ouard" loading="lazy"><span>E2ouard</span></div>
         </div>
       </div>
     </section>
@@ -540,5 +633,194 @@
   </div>
 
 </div>
+
+<script>
+(function () {
+  var fragField = document.getElementById('fragField');
+  if (!fragField) return;
+
+  var chipEls = Array.prototype.slice.call(fragField.querySelectorAll('.frag-chip'));
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // soft, non-springy follow while held
+  var DRAG_STIFFNESS = 0.12, DRAG_FRICTION = 0.6;
+  // gentle elastic snap-back to the home spot once released
+  var RETURN_STIFFNESS = 0.16, RETURN_FRICTION = 0.76;
+  // collision: chips gently bump apart instead of overlapping
+  var GAP = 8, PUSH = 1, BUMP_KICK = 0.35;
+  // chips are tethered to their home spot; this caps how far a tug can pull them
+  var MAX_PULL = 60;
+  // outer safety rail, kept bigger than MAX_PULL so edge-hugging chips aren't cut short
+  var EDGE_SLACK = 90;
+
+  var chips = chipEls.map(function (el) {
+    return {
+      el: el, x: 0, y: 0, vx: 0, vy: 0, w: 0, h: 0,
+      homeX: 0, homeY: 0, dragging: false,
+      grabX: 0, grabY: 0, baseX: 0, baseY: 0, mouseDX: 0, mouseDY: 0
+    };
+  });
+
+  function isDraggable() {
+    return getComputedStyle(fragField).position === 'relative';
+  }
+
+  function syncFromDOM(c) {
+    var fieldRect = fragField.getBoundingClientRect();
+    var elRect = c.el.getBoundingClientRect();
+    c.x = elRect.left - fieldRect.left;
+    c.y = elRect.top - fieldRect.top;
+    c.w = elRect.width;
+    c.h = elRect.height;
+  }
+
+  function resolveOverlaps() {
+    // plain (non-rAF) passes so the resting/home layout never overlaps
+    for (var pass = 0; pass < 24; pass++) {
+      for (var i = 0; i < chips.length; i++) {
+        for (var j = i + 1; j < chips.length; j++) {
+          var a = chips[i], b = chips[j];
+          var overlapX = Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x) + GAP;
+          var overlapY = Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y) + GAP;
+          if (overlapX <= 0 || overlapY <= 0) continue;
+          if (overlapX < overlapY) {
+            var dir = (a.x + a.w / 2) < (b.x + b.w / 2) ? -1 : 1;
+            a.x += dir * overlapX * 0.5;
+            b.x -= dir * overlapX * 0.5;
+          } else {
+            var dirY = (a.y + a.h / 2) < (b.y + b.h / 2) ? -1 : 1;
+            a.y += dirY * overlapY * 0.5;
+            b.y -= dirY * overlapY * 0.5;
+          }
+        }
+      }
+    }
+  }
+
+  function initAll() {
+    if (!isDraggable()) return;
+    chips.forEach(syncFromDOM);
+    resolveOverlaps();
+    var fieldRect = fragField.getBoundingClientRect();
+    chips.forEach(function (c) {
+      var maxLeft = fieldRect.width - c.w, maxTop = fieldRect.height - c.h;
+      c.x = Math.max(0, Math.min(c.x, maxLeft));
+      c.y = Math.max(0, Math.min(c.y, maxTop));
+      c.homeX = c.x; c.homeY = c.y;
+      c.vx = 0; c.vy = 0;
+      c.el.style.left = c.x + 'px';
+      c.el.style.top = c.y + 'px';
+      c.el.style.right = 'auto';
+    });
+  }
+
+  function loop() {
+    requestAnimationFrame(loop);
+    if (!isDraggable()) return;
+    var fieldRect = fragField.getBoundingClientRect();
+
+    chips.forEach(function (c) {
+      var tx, ty, stiffness, friction;
+      if (c.dragging) {
+        var rawX = c.baseX + c.mouseDX, rawY = c.baseY + c.mouseDY;
+        var dx0 = rawX - c.homeX, dy0 = rawY - c.homeY;
+        var dist = Math.sqrt(dx0 * dx0 + dy0 * dy0) || 0.0001;
+        var eff = MAX_PULL * Math.tanh(dist / MAX_PULL);
+        var scale = eff / dist;
+        tx = c.homeX + dx0 * scale;
+        ty = c.homeY + dy0 * scale;
+        stiffness = DRAG_STIFFNESS; friction = DRAG_FRICTION;
+      } else {
+        tx = c.homeX; ty = c.homeY;
+        stiffness = RETURN_STIFFNESS; friction = RETURN_FRICTION;
+      }
+      var dx = tx - c.x, dy = ty - c.y;
+      c.vx = (c.vx + dx * stiffness) * friction;
+      c.vy = (c.vy + dy * stiffness) * friction;
+      c.x += c.vx; c.y += c.vy;
+    });
+
+    // pairwise collision, using real rendered rects so the ambient float is included
+    var rects = chips.map(function (c) { return c.el.getBoundingClientRect(); });
+    for (var i = 0; i < chips.length; i++) {
+      for (var j = i + 1; j < chips.length; j++) {
+        var a = chips[i], b = chips[j], ra = rects[i], rb = rects[j];
+        var overlapX = Math.min(ra.right, rb.right) - Math.max(ra.left, rb.left) + GAP;
+        var overlapY = Math.min(ra.bottom, rb.bottom) - Math.max(ra.top, rb.top) + GAP;
+        if (overlapX <= 0 || overlapY <= 0) continue;
+        var aMovable = !a.dragging, bMovable = !b.dragging;
+        if (!aMovable && !bMovable) continue;
+        var pushA = aMovable ? (bMovable ? 0.5 : 1) : 0;
+        var pushB = bMovable ? (aMovable ? 0.5 : 1) : 0;
+        if (overlapX < overlapY) {
+          var dir = (ra.left + ra.width / 2) < (rb.left + rb.width / 2) ? -1 : 1;
+          a.x += dir * overlapX * PUSH * pushA; a.vx += dir * overlapX * BUMP_KICK * pushA;
+          b.x -= dir * overlapX * PUSH * pushB; b.vx -= dir * overlapX * BUMP_KICK * pushB;
+        } else {
+          var dirY = (ra.top + ra.height / 2) < (rb.top + rb.height / 2) ? -1 : 1;
+          a.y += dirY * overlapY * PUSH * pushA; a.vy += dirY * overlapY * BUMP_KICK * pushA;
+          b.y -= dirY * overlapY * PUSH * pushB; b.vy -= dirY * overlapY * BUMP_KICK * pushB;
+        }
+      }
+    }
+
+    // safety rail only, well outside the tether's own reach, so chips resting
+    // near an edge (e.g. "Cameraman événementiel" at top:0) can still be tugged
+    // the full MAX_PULL distance without hitting a wall early
+    chips.forEach(function (c) {
+      var minX = -EDGE_SLACK, maxX = fieldRect.width - c.w + EDGE_SLACK;
+      var minY = -EDGE_SLACK, maxY = fieldRect.height - c.h + EDGE_SLACK;
+      if (c.x < minX) { c.x = minX; c.vx = 0; }
+      if (c.x > maxX) { c.x = maxX; c.vx = 0; }
+      if (c.y < minY) { c.y = minY; c.vy = 0; }
+      if (c.y > maxY) { c.y = maxY; c.vy = 0; }
+      c.el.style.left = c.x + 'px';
+      c.el.style.top = c.y + 'px';
+    });
+  }
+
+  chips.forEach(function (c) {
+    c.el.addEventListener('pointerdown', function (e) {
+      if (!isDraggable()) return;
+      c.el.classList.add('is-dragging');
+      c.el.style.transform = 'none';
+      c.baseX = c.x; c.baseY = c.y;
+      c.grabX = e.clientX; c.grabY = e.clientY;
+      c.mouseDX = 0; c.mouseDY = 0;
+      c.dragging = true;
+      c.el.setPointerCapture(e.pointerId);
+    });
+
+    c.el.addEventListener('pointermove', function (e) {
+      if (!c.dragging) return;
+      c.mouseDX = e.clientX - c.grabX;
+      c.mouseDY = e.clientY - c.grabY;
+      if (reduceMotion) {
+        var dx0 = (c.baseX + c.mouseDX) - c.homeX, dy0 = (c.baseY + c.mouseDY) - c.homeY;
+        var dist = Math.sqrt(dx0 * dx0 + dy0 * dy0) || 0.0001;
+        var eff = MAX_PULL * Math.tanh(dist / MAX_PULL);
+        var scale = eff / dist;
+        c.x = c.homeX + dx0 * scale; c.y = c.homeY + dy0 * scale;
+        c.vx = 0; c.vy = 0;
+      }
+    });
+
+    function endDrag() {
+      if (!c.dragging) return;
+      c.dragging = false;
+      c.el.classList.remove('is-dragging');
+      c.el.style.transform = '';
+      if (reduceMotion) { c.x = c.homeX; c.y = c.homeY; c.vx = 0; c.vy = 0; }
+    }
+    c.el.addEventListener('pointerup', endDrag);
+    c.el.addEventListener('pointercancel', endDrag);
+  });
+
+  initAll();
+  window.addEventListener('load', initAll);
+  window.addEventListener('resize', initAll);
+  requestAnimationFrame(loop);
+})();
+</script>
 </body>
 </html>
