@@ -376,9 +376,15 @@
     padding:30px 26px;
     background:var(--surface);
     display:flex; flex-direction:column;
+    text-align:center;
+    transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+  }
+  .offer-card:hover{
+    border-color:var(--accent-strong);
+    box-shadow:0 0 26px -4px rgba(125,211,252,0.6);
+    transform:translateY(-2px);
   }
   .offer-card.featured{
-    border-color:var(--accent);
     background:linear-gradient(180deg, rgba(125,211,252,0.08), var(--surface) 55%);
   }
   .offer-tag{
@@ -389,7 +395,7 @@
   .offer-card h3{ font-size:22px; margin-bottom:12px; }
   .offer-card p{ font-size:14.5px; flex-grow:1; }
   .offer-steps{
-    display:flex; gap:6px; margin-top:20px; flex-wrap:wrap;
+    display:flex; gap:6px; margin-top:20px; flex-wrap:wrap; justify-content:center;
     font-family:var(--font-label); font-size:12px; color:var(--text-dim);
   }
   .offer-steps span:not(:last-child)::after{ content:"→"; margin-left:6px; color:var(--border-strong); }
@@ -512,9 +518,9 @@
     <!-- ================= PROBLEM ================= -->
     <section>
       <div class="container">
-        <div class="eyebrow">Le schéma classique</div>
-        <h2 style="font-size:clamp(26px,4vw,36px);">Une compétence, un prestataire.</h2>
-        <p class="lede" style="margin-top:18px;">La plupart des marques finissent par gérer plusieurs interlocuteurs vidéo en parallèle, pas par choix, mais parce que personne ne couvre tout.</p>
+        <div class="eyebrow" style="justify-content:center;">Le schéma classique</div>
+        <h2 style="font-size:clamp(26px,4vw,36px); text-align:center;">Une compétence, un prestataire.</h2>
+        <p class="lede" style="margin-top:18px; text-align:center;">La plupart des marques finissent par gérer plusieurs interlocuteurs vidéo en parallèle, pas par choix, mais parce que personne ne couvre tout.</p>
 
         <div class="frag-field" id="fragField">
           <div class="particle-layer" aria-hidden="true">
@@ -568,7 +574,7 @@
     <!-- ================= TRUST ================= -->
     <section style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
       <div class="container">
-        <div class="eyebrow">Ils m'ont fait confiance</div>
+        <div class="eyebrow" style="justify-content:center;">Ils m'ont fait confiance</div>
         <div class="client-row">
           <div class="client-marquee__item"><img src="assets/logos/drop-music.png" alt="Drop Music" loading="lazy"><span>Drop Music</span></div>
           <div class="client-marquee__item"><img src="assets/logos/vk-studio.png" alt="VK Studio" loading="lazy"><span>VK Studio</span></div>
@@ -583,8 +589,8 @@
     <!-- ================= OFFER ================= -->
     <section id="offre">
       <div class="container-wide">
-        <div class="eyebrow">Deux façons de travailler ensemble</div>
-        <h2 style="font-size:clamp(26px,4vw,36px); max-width:600px;">Selon ton besoin.</h2>
+        <div class="eyebrow" style="justify-content:center;">Deux façons de travailler ensemble</div>
+        <h2 style="font-size:clamp(26px,4vw,36px); max-width:600px; margin-left:auto; margin-right:auto; text-align:center;">Selon ton besoin.</h2>
 
         <div class="offer-grid">
           <div class="offer-card featured">
