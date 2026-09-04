@@ -168,46 +168,20 @@
     margin-top:16px; font-size:13px; color:var(--text-dim);
   }
 
-  /* Video placeholder card */
-  .video-card{
+  /* Video embed (VSL) */
+  .video-embed{
     margin:52px auto 0;
     max-width:640px;
-    aspect-ratio:16/10;
+    aspect-ratio:16/9;
     border-radius:20px;
     border:1px solid var(--border-strong);
     background:
       radial-gradient(ellipse 500px 260px at 50% 0%, rgba(125,211,252,0.16), transparent 70%),
       linear-gradient(160deg, var(--surface) 0%, #0d0e10 100%);
-    position:relative;
-    display:flex; align-items:center; justify-content:center;
     overflow:hidden;
-    text-decoration:none;
   }
-  .video-card::after{
-    content:"";
-    position:absolute; inset:0;
-    background-image:
-      repeating-linear-gradient(90deg, rgba(242,242,240,0.035) 0 1px, transparent 1px 44px);
-  }
-  .video-play{
-    width:64px; height:64px; border-radius:50%;
-    background:rgba(242,242,240,0.08);
-    border:1px solid var(--border-strong);
-    display:flex; align-items:center; justify-content:center;
-    position:relative; z-index:1;
-    transition:transform .18s ease, background .18s ease;
-  }
-  .video-card:hover .video-play{ transform:scale(1.06); background:rgba(125,211,252,0.16); }
-  .video-play svg{ width:20px; height:20px; margin-left:3px; }
-  .video-caption{
-    position:absolute; left:18px; bottom:16px; z-index:1;
-    font-family:var(--font-label); font-size:12px; color:var(--text-dim);
-    letter-spacing:0.03em;
-  }
-  .video-duration{
-    position:absolute; right:18px; top:16px; z-index:1;
-    font-family:var(--font-label); font-size:11px; color:var(--text-dim);
-    border:1px solid var(--border-strong); border-radius:6px; padding:3px 8px;
+  .video-embed iframe{
+    width:100%; height:100%; border:0; display:block;
   }
 
   /* ---------- Problem: fragmentation ---------- */
@@ -497,14 +471,9 @@
 
         <p class="lede">Motion design, montage, captation d'événements. Regarde la vidéo pour voir comment je travaille, et si ça peut coller avec ce que tu cherches.</p>
 
-        <!-- Placeholder vidéo : Benjamin doit remplacer le href par le lien de sa VSL -->
-        <a id="video" class="video-card" href="#" target="_blank" rel="noopener" aria-label="Regarder la vidéo de présentation">
-          <span class="video-duration">3:12</span>
-          <span class="video-play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="var(--text)"><path d="M8 5v14l11-7z"/></svg>
-          </span>
-          <span class="video-caption">▶ 3 minutes pour comprendre comment je travaille</span>
-        </a>
+        <div id="video" class="video-embed">
+          <iframe src="https://fast.wistia.net/embed/iframe/5t9dyyadct?videoFoam=true" title="Vidéo de présentation FilmMaker Benji" allow="autoplay; fullscreen" allowtransparency="true" allowfullscreen loading="lazy"></iframe>
+        </div>
 
         <div class="hero-cta">
           <a class="btn btn-primary" href="https://calendly.com/benjamin-domingues-pro/30min" target="_blank" rel="noopener">Réserver mon appel (30 min)</a>
