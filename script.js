@@ -260,9 +260,10 @@
     reelTrack.scrollBy({ left: direction * reelTrack.clientWidth, behavior: 'smooth' });
   };
 
-  document.querySelectorAll('.video-thumb[data-videos]').forEach((thumb) => {
+  document.querySelectorAll('.video-thumb[data-videos], .reel-trigger[data-videos]').forEach((thumb) => {
     const videoIds = thumb.dataset.videos.split(',').map((id) => id.trim()).filter(Boolean);
-    const orientation = thumb.classList.contains('video-thumb--horizontal') ? 'horizontal' : 'vertical';
+    const orientation = thumb.dataset.orientation
+      || (thumb.classList.contains('video-thumb--horizontal') ? 'horizontal' : 'vertical');
     const startIndex = Number(thumb.dataset.index || 0);
 
     thumb.addEventListener('click', () => openReel(videoIds, orientation, startIndex));
