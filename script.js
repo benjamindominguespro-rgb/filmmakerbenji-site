@@ -181,11 +181,27 @@
   // Vidéo de fond du hero : en pause tant que la modale showreel est ouverte
   const heroVideo = document.querySelector('.hero__video');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (heroVideo && reduceMotion) heroVideo.pause();
   const pauseHeroVideo = () => { if (heroVideo) heroVideo.pause(); };
+  // Si le navigateur bloque la lecture (économie d'énergie...), le poster reste affiché
   const resumeHeroVideo = () => {
-    if (heroVideo && !reduceMotion) heroVideo.play().catch(() => {});
+    if (!heroVideo || reduceMotion) return;
+    const playing = heroVideo.play();
+    if (playing && playing.catch) playing.catch(() => {});
   };
+  if (heroVideo) {
+    heroVideo.muted = true;
+    heroVideo.defaultMuted = true;
+    if (reduceMotion) {
+      heroVideo.pause();
+    } else {
+      resumeHeroVideo();
+      // Mode économie d'énergie : on retente au premier contact de l'utilisateur
+      const retryHeroVideo = () => { if (heroVideo.paused) resumeHeroVideo(); };
+      ['touchstart', 'pointerdown'].forEach((evt) =>
+        document.addEventListener(evt, retryHeroVideo, { once: true, passive: true })
+      );
+    }
+  }
 
   const buildReelSlide = (videoId, index) => {
     const slide = document.createElement('div');
