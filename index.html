@@ -94,6 +94,10 @@
 <!-- ================= HERO ================= -->
 <section class="hero" id="hero">
   <div class="hero__bg">
+    <video class="hero__video" autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-hidden="true" tabindex="-1">
+      <source src="assets/hero-loop.webm" type="video/webm">
+      <source src="assets/hero-loop.mp4" type="video/mp4">
+    </video>
     <div class="hero__overlay"></div>
   </div>
 
@@ -108,32 +112,15 @@
         <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
         Réserver un appel
       </a>
-      <a href="#vertical" class="btn btn--ghost" data-scroll>
-        Voir mes projets
-        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-      </a>
+      <button type="button" class="btn btn--ghost reel-trigger" data-videos="1qzMd_nkMtM" data-orientation="horizontal" data-index="0">
+        <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Voir le showreel
+      </button>
     </div>
   </div>
 
   <div class="hero__scroll-indicator" aria-hidden="true">
     <span></span>
-  </div>
-</section>
-
-<!-- ================= APERÇU RAPIDE (SHOWREEL) ================= -->
-<section class="section showreel" id="apercu">
-  <div class="container">
-    <div class="section__header fade-in">
-      <span class="section__tag">Showreel</span>
-      <h2 class="section__title">Un aperçu rapide ?</h2>
-      <p class="section__subtitle">Pas envie de fouiller parmi tous les projets ? Mon showreel résume mon travail en moins d'une minute.</p>
-    </div>
-    <div class="showreel__cta fade-in">
-      <button type="button" class="btn btn--primary reel-trigger" data-videos="1qzMd_nkMtM" data-orientation="horizontal" data-index="0">
-        <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        Voir le showreel
-      </button>
-    </div>
   </div>
 </section>
 

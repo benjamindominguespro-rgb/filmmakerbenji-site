@@ -178,6 +178,15 @@
   let reelHintTimer = null;
   let reelVideoCount = 0;
 
+  // Vidéo de fond du hero : en pause tant que la modale showreel est ouverte
+  const heroVideo = document.querySelector('.hero__video');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (heroVideo && reduceMotion) heroVideo.pause();
+  const pauseHeroVideo = () => { if (heroVideo) heroVideo.pause(); };
+  const resumeHeroVideo = () => {
+    if (heroVideo && !reduceMotion) heroVideo.play().catch(() => {});
+  };
+
   const buildReelSlide = (videoId, index) => {
     const slide = document.createElement('div');
     slide.className = 'reel-slide';
@@ -220,6 +229,7 @@
     reelLightbox.classList.add('is-open');
     reelLightbox.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    pauseHeroVideo();
     reelTrack.scrollLeft = startIndex * reelTrack.clientWidth;
     updateReelNav(startIndex);
 
@@ -249,6 +259,7 @@
     reelLightbox.classList.remove('is-open');
     reelLightbox.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    resumeHeroVideo();
     if (reelSlideObserver) {
       reelSlideObserver.disconnect();
       reelSlideObserver = null;

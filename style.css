@@ -251,12 +251,20 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   z-index: 0;
   background: radial-gradient(ellipse at 50% 32%, #142235 0%, var(--bg) 68%);
 }
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
 .hero__overlay {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.3) 45%, var(--bg) 100%),
-    radial-gradient(ellipse at center, rgba(10,10,10,0.05) 0%, rgba(10,10,10,0.5) 100%);
+    linear-gradient(180deg, transparent 80%, var(--bg) 100%),
+    rgba(10, 10, 10, 0.55);
 }
 
 .hero__content {
@@ -549,20 +557,6 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 .video-thumb--horizontal {
   width: clamp(210px, 34vw, 300px);
   aspect-ratio: 16 / 9;
-}
-.showreel {
-  padding: 96px 0 88px;
-}
-.showreel .section__header {
-  margin-bottom: 32px;
-}
-.showreel__cta {
-  display: flex;
-  justify-content: center;
-}
-.reel-trigger {
-  cursor: pointer;
-  border: 0;
 }
 .video-thumb:hover .card__thumb {
   transform: scale(1.08);
