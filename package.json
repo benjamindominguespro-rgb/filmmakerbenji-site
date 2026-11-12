@@ -1,0 +1,10 @@
+{
+  "name": "filmmakerbenji-site",
+  "private": true,
+  "description": "Site FilmMakerBenji : plusieurs façades (designs) alimentées par content/data.js",
+  "scripts": {
+    "dev": "node scripts/dev-server.js",
+    "build": "node scripts/build.js",
+    "titles": "node scripts/titles.js"
+  }
+}
