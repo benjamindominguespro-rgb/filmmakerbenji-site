@@ -385,6 +385,8 @@ module.exports = {
       reviewsWindow: 'Messagerie — Clients ({n} en ligne)',
       reviewSays: 'dit :',
       contactBrand: 'FILMMAKERBENJI',
+      /* Image d'aperçu quand le lien est partagé (Discord, WhatsApp, LinkedIn…) : capture du hero de cette façade */
+      shareImage: { url: 'https://filmmakerbenji.com/img/og-image.jpg', width: 1200, height: 630 },
       contactBookCall: 'Réserve directement un appel de 30 min →',
       contactWriteLabel: 'Écris-moi :',
       contactEmail: 'Benjamin.Domingues.Pro@gmail.com',
