@@ -312,11 +312,17 @@ function renderProcess(d) {
 function renderReviews(d) {
   const c = d.copy.bureau;
   const items = d.testimonials.items;
+  // Photo de profil façon MSN : le logo du client dans un cadre carré (photo = remplie, logo = contenu sur fond sombre)
+  const pdp = (r, cls) => {
+    if (!r.logo || !r.logo.src) return `<span class="b-pdp ${cls}" aria-hidden="true"></span>`;
+    const photo = /\.jpe?g$/i.test(r.logo.src) ? ' b-pdp--photo' : (r.logo.width / r.logo.height > 1.5 ? ' b-pdp--wide' : '');
+    return `<span class="b-pdp ${cls}${photo}" aria-hidden="true"><img src="/${r.logo.src}" alt="" width="${r.logo.width}" height="${r.logo.height}" loading="lazy" decoding="async"></span>`;
+  };
   const names = items.map((r, i) => `
-          <li><button type="button" class="b-chat__who" data-chat="${i}" aria-pressed="false"><span class="b-dot b-dot--sm" aria-hidden="true"></span>${esc(r.client)}</button></li>`).join('');
+          <li><button type="button" class="b-chat__who" data-chat="${i}" aria-pressed="false">${pdp(r, 'b-pdp--list')}<span class="b-chat__name">${esc(r.client)}</span></button></li>`).join('');
   const msgs = items.map((r, i) => `
           <div class="b-msg" data-chat="${i}">
-            <span class="b-msg__from">${esc(r.client)} ${esc(c.reviewSays)}</span>
+            <span class="b-msg__from">${pdp(r, 'b-pdp--msg')}<span>${esc(r.client)} ${esc(c.reviewSays)}</span></span>
             <span class="b-msg__typing" aria-hidden="true"><i></i><i></i><i></i></span>
             <p class="b-msg__bubble">${esc(r.quote)}</p>
             <span class="b-msg__service">${esc(r.service)}</span>

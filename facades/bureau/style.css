@@ -477,7 +477,41 @@ button.b-tb { cursor: pointer; font: inherit; }
 .b-chat__who:focus-visible { outline: 3px solid var(--blue); outline-offset: 1px; }
 .b-chat__msgs { flex: 999 1 560px; min-width: 0; padding: 24px; display: flex; flex-direction: column; gap: 18px; background: #FFFFFF; }
 .b-msg { display: flex; flex-direction: column; gap: 4px; }
-.b-msg__from { font-size: 14px; font-weight: 700; color: var(--blue); }
+.b-msg__from { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: var(--blue); }
+/* Photo de profil façon MSN : cadre carré arrondi, liseré clair, pastille « en ligne » */
+.b-pdp {
+  position: relative;
+  flex: none;
+  display: block;
+  width: 44px;
+  height: 44px;
+  padding: 4px;
+  box-sizing: border-box;
+  background: linear-gradient(160deg, #2A3FB8, var(--blue-deep));
+  border: 2px solid #FFFFFF;
+  border-radius: 7px;
+  box-shadow: 0 0 0 1.5px #316AC5, 2px 2px 0 rgba(10, 21, 102, 0.3);
+  overflow: hidden;
+}
+.b-pdp img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.b-pdp--photo { padding: 0; background: #FFFFFF; }
+.b-pdp--wide { padding: 1px; }
+.b-pdp--photo img { object-fit: cover; }
+.b-pdp--list::after {
+  content: '';
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--green);
+  border: 1.5px solid #FFFFFF;
+  animation: b-blink 2.6s ease-in-out infinite;
+}
+.b-pdp--msg { width: 32px; height: 32px; padding: 3px; border-width: 1.5px; border-radius: 6px; }
+.b-pdp--msg.b-pdp--photo { padding: 0; }
+.b-chat__name { min-width: 0; overflow-wrap: anywhere; }
 .b-msg__bubble {
   margin: 0;
   font-size: 16px;
@@ -702,7 +736,7 @@ body.b-grabbing, body.b-grabbing * { cursor: grabbing !important; user-select: n
 .is-offscreen, .is-offscreen * { animation-play-state: paused !important; }
 
 @media (prefers-reduced-motion: reduce) {
-  .b-float, .b-contact__char, .b-dot, .b-caret, .b-l { animation: none !important; }
+  .b-float, .b-contact__char, .b-dot, .b-caret, .b-l, .b-pdp--list::after { animation: none !important; }
   .js .b-reveal, .js .b-win.b-reveal, .js .b-form.b-reveal { opacity: 1; scale: 1; translate: var(--dx, 0px) var(--dy, 0px); transition: none; }
   .b-win.is-closing, .b-win.is-pulse { animation: none; }
 }
