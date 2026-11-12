@@ -335,14 +335,14 @@ function renderContact(d) {
     ${char}
     <div class="b-contact__main">
       <h2 class="b-title b-title--contact">${esc(c.contactBrand)}</h2>
-      <form class="b-form b-reveal" id="contactForm" data-mail="${esc(d.contact.email)}" data-subject="${esc(c.contactMailSubject)}">
-        <label for="mail">${esc(c.contactLabel)}</label>
-        <div class="b-form__row">
-          <input id="mail" name="mail" type="email" placeholder="${esc(c.contactPlaceholder)}" autocomplete="email" required>
-          <button type="submit" class="b-form__submit">${esc(c.contactButton)}</button>
+      <div class="b-links b-reveal">
+        <a class="b-links__call" href="${d.contact.calendly}" target="_blank" rel="noopener">${esc(c.contactBookCall)}</a>
+        <div class="b-links__mail">
+          <svg class="b-links__icon" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="3" width="13" height="10" rx="1.5"/><path d="M2 4.5l6 4.5 6-4.5"/></svg>
+          <span class="b-links__text">${esc(c.contactWriteLabel)} <a href="mailto:${esc(c.contactEmail)}">${esc(c.contactEmail).replace('@', '<wbr>@')}</a></span>
+          <button type="button" class="b-copy" id="copyMail" data-copy="${esc(c.contactEmail)}" data-label="${esc(c.copyLabel)}" data-done="${esc(c.copiedLabel)}">${esc(c.copyLabel)}</button>
         </div>
-        <a href="${d.contact.calendly}" target="_blank" rel="noopener">${esc(c.contactBookCall)}</a>
-      </form>
+      </div>
     </div>
   </div>
 </section>

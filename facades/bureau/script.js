@@ -549,17 +549,35 @@
   }
   chatBtns.forEach(function (b, i) { b.addEventListener('click', function () { selectChat(i); }); });
 
-  /* ---------- Formulaire de contact : ouvre le mail du visiteur, prêt à envoyer ---------- */
-  var form = $('#contactForm');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var mail = form.elements.mail.value.trim();
-      if (!mail) return;
-      var body = 'Bonjour Benjamin,\n\nJ\'ai un projet vidéo et j\'aimerais en discuter.\nMon email : ' + mail + '\n';
-      window.location.href = 'mailto:' + form.getAttribute('data-mail') +
-        '?subject=' + encodeURIComponent(form.getAttribute('data-subject')) +
-        '&body=' + encodeURIComponent(body);
+  /* ---------- Bouton « Copier » l'adresse email ---------- */
+  var copyBtn = $('#copyMail');
+  if (copyBtn) {
+    var copyTimer = 0;
+    var copyDone = function () {
+      copyBtn.textContent = copyBtn.getAttribute('data-done');
+      copyBtn.classList.add('is-done');
+      clearTimeout(copyTimer);
+      copyTimer = setTimeout(function () {
+        copyBtn.textContent = copyBtn.getAttribute('data-label');
+        copyBtn.classList.remove('is-done');
+      }, 2000);
+    };
+    var copyFallback = function (text) {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+      document.body.removeChild(ta);
+      return ok;
+    };
+    copyBtn.addEventListener('click', function () {
+      var text = copyBtn.getAttribute('data-copy');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(copyDone, function () { if (copyFallback(text)) copyDone(); });
+      } else if (copyFallback(text)) {
+        copyDone();
+      }
     });
   }
 })();

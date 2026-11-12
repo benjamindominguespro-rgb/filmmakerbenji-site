@@ -385,11 +385,11 @@ module.exports = {
       reviewsWindow: 'Messagerie — Clients ({n} en ligne)',
       reviewSays: 'dit :',
       contactBrand: 'FILMMAKERBENJI',
-      contactLabel: 'Ton email, je te réponds sous 24 h',
-      contactPlaceholder: 'toi@exemple.fr',
-      contactButton: 'Contacter',
-      contactMailSubject: 'Projet vidéo — prise de contact',
-      contactBookCall: 'Ou réserve directement un appel de 30 min →',
+      contactBookCall: 'Réserve directement un appel de 30 min →',
+      contactWriteLabel: 'Écris-moi :',
+      contactEmail: 'Benjamin.Domingues.Pro@gmail.com',
+      copyLabel: 'Copier',
+      copiedLabel: 'Copié !',
       startButton: 'Benji ▸'
     }
   }
