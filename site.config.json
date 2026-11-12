@@ -1,4 +1,4 @@
 {
   "_aide": "FACADE = le design publié en ligne. Valeurs possibles : voir le dossier facades/ (classique, bureau). Seul Benjamin choisit.",
-  "FACADE": "classique"
+  "FACADE": "bureau"
 }
