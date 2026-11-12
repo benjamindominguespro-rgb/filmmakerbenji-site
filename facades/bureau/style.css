@@ -164,9 +164,11 @@ button.b-tb { cursor: pointer; font: inherit; }
   font-weight: 400;
   font-size: clamp(34px, 6vw, 54px);
   line-height: 1.05;
-  color: var(--blue);
+  color: #FFFFFF;
+  /* Même contour et même ombre que le titre du hero : contour bleu foncé de 3 px + ombre portée dessous */
+  text-shadow: 3px 3px 0 #10208F, -3px 3px 0 #10208F, 3px -3px 0 #10208F, -3px -3px 0 #10208F, 0 8px 0 var(--blue-deep);
 }
-.b-h2--light { color: #FFFFFF; margin-bottom: 16px; text-shadow: 0 6px 0 var(--blue-deep); }
+.b-h2--light { margin-bottom: 16px; }
 .b-lead { margin: 0 0 28px; font-size: 18px; color: var(--ink-soft); }
 
 /* ---------- NAV ---------- */
@@ -225,6 +227,14 @@ button.b-tb { cursor: pointer; font: inherit; }
 }
 
 /* ---------- HERO ---------- */
+/* Titre du hero : même police et même rendu qu'avant, seules les lettres bougent : chacune monte et descend
+   doucement (sans penchement ni déformation), décalée de la précédente. */
+.b-w { display: inline-block; white-space: nowrap; }
+.b-l { display: inline-block; animation: b-letter 2.8s ease-in-out infinite; animation-delay: calc(var(--k, 0) * -0.17s); will-change: transform; }
+@keyframes b-letter {
+  0%, 100% { transform: translateY(2.5px); }
+  50% { transform: translateY(-2.5px); }
+}
 .b-hero__inner {
   position: relative;
   max-width: 1280px;
@@ -260,10 +270,12 @@ button.b-tb { cursor: pointer; font: inherit; }
   position: absolute;
   right: 0;
   top: 10px;
-  width: 92%;
+  width: 92%; /* +20 % sur grand écran : voir plus bas */
   background: #0C0C14;
   box-shadow: 10px 10px 0 rgba(10, 21, 102, 0.35);
 }
+@media (min-width: 1180px) { .b-win--player { width: 110.4%; } } /* 92 % x 1,2 : la fenêtre grandit vers la gauche, la hero garde sa taille */
+@media (min-width: 901px) and (max-width: 1179px) { .b-win--player { width: 100%; } }
 .b-player__screen { position: relative; }
 .b-player__video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: #0C0C14; }
 .b-player__hit {
@@ -690,7 +702,7 @@ body.b-grabbing, body.b-grabbing * { cursor: grabbing !important; user-select: n
 .is-offscreen, .is-offscreen * { animation-play-state: paused !important; }
 
 @media (prefers-reduced-motion: reduce) {
-  .b-float, .b-contact__char, .b-dot, .b-caret { animation: none !important; }
+  .b-float, .b-contact__char, .b-dot, .b-caret, .b-l { animation: none !important; }
   .js .b-reveal, .js .b-win.b-reveal, .js .b-form.b-reveal { opacity: 1; scale: 1; translate: var(--dx, 0px) var(--dy, 0px); transition: none; }
   .b-win.is-closing, .b-win.is-pulse { animation: none; }
 }

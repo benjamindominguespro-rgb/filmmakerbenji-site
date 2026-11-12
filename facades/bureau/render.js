@@ -117,6 +117,20 @@ function renderNav(d) {
 `;
 }
 
+/* Titre du hero : chaque lettre est son propre bloc pour pouvoir onduler (haut/bas) avec un décalage.
+   Les mots restent insécables et le texte lu par les lecteurs d'écran est porté par l'aria-label du h1. */
+function waveHeadline(lines) {
+  let k = 0;
+  return lines
+    .map((line) =>
+      line
+        .split(' ')
+        .map((word) => `<span class="b-w" aria-hidden="true">${[...word].map((ch) => `<span class="b-l" style="--k:${k++}">${esc(ch)}</span>`).join('')}</span>`)
+        .join(' ')
+    )
+    .join('<br>');
+}
+
 function renderHero(d) {
   const c = d.copy.bureau;
   const photo = facadeFile('pdp-msn.jpg') ? '{BASE}img/pdp-msn.jpg' : '/assets/hero.jpg';
@@ -127,7 +141,7 @@ function renderHero(d) {
 <section class="b-hero" id="top">
   <div class="b-hero__inner">
     <div class="b-hero__text">
-      <h1 class="b-title">${c.headline.map(esc).join('<br>')}</h1>
+      <h1 class="b-title b-title--wave" aria-label="${esc(c.headline.join(' '))}">${waveHeadline(c.headline)}</h1>
 
       <div class="b-win b-win--dialog b-float b-reveal" style="--d: -2s" role="group" aria-label="${esc(c.messageTitle)}">
         <div class="b-win__bar"><span class="b-win__title">${esc(c.messageTitle)}</span>${BTN_MIN}${BTN_CLOSE}</div>
@@ -233,7 +247,7 @@ function renderProjects(d, titles) {
   return `
 <!-- PROJETS : explorateur de dossiers -->
 <section class="b-section" id="projets">
-  <h2 class="b-h2">${esc(c.foldersTitle)}</h2>
+  <h2 class="b-h2" aria-label="${esc(c.foldersTitle)}">${waveHeadline([c.foldersTitle])}</h2>
   <p class="b-lead">${esc(c.foldersIntro)}</p>
 
   <div class="b-win b-win--big b-reveal" id="explorer">
@@ -277,7 +291,7 @@ function renderProcess(d) {
 <section class="b-process" id="process">
   <div class="b-process__inner">
     <div class="b-process__intro">
-      <h2 class="b-h2 b-h2--light">${esc(c.setupTitle)}</h2>
+      <h2 class="b-h2 b-h2--light" aria-label="${esc(c.setupTitle)}">${waveHeadline([c.setupTitle])}</h2>
       <p>${esc(c.setupIntro)}</p>
     </div>
     <div class="b-win b-win--setup b-float b-reveal" style="--d: -3s">
@@ -309,7 +323,7 @@ function renderReviews(d) {
   return `
 <!-- AVIS : messagerie -->
 <section class="b-section b-section--avis" id="avis">
-  <h2 class="b-h2">${esc(c.reviewsTitle)}</h2>
+  <h2 class="b-h2" aria-label="${esc(c.reviewsTitle)}">${waveHeadline([c.reviewsTitle])}</h2>
   <div class="b-win b-win--big b-reveal">
     <div class="b-win__bar b-win__bar--big"><span class="b-win__title">${esc(c.reviewsWindow.replace('{n}', items.length))}</span>${CONTROLS}</div>
     <div class="b-chat">

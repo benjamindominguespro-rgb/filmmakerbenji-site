@@ -467,7 +467,7 @@
         }
       });
     }, { rootMargin: '120px 0px' });
-    $$('.b-hero, .b-ticker, .b-stats, .b-process, .b-contact').forEach(function (el) { pauseObs.observe(el); });
+    $$('.b-hero, .b-ticker, .b-stats, .b-process, .b-contact, .b-h2').forEach(function (el) { pauseObs.observe(el); });
   }
 
   /* ---------- Assistant : cliquer une étape fait avancer la barre (par blocs) ---------- */
