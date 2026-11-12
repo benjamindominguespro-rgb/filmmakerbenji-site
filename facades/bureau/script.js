@@ -301,7 +301,16 @@
       reelFill.style.transform = 'scaleX(' + (reelVideo.currentTime / reelVideo.duration).toFixed(3) + ')';
       reelTime.textContent = fmt(reelVideo.currentTime) + ' / ' + fmt(reelVideo.duration);
     });
-    if (reduceMotion) reelVideo.pause();
+    /* La vidéo ne se télécharge qu'après le chargement de la page (l'image d'attente reste affichée en attendant) */
+    var reelSrc = reelVideo.getAttribute('data-src');
+    function loadReel() {
+      if (!reelSrc || reduceMotion || reelVideo.getAttribute('src')) return;
+      reelVideo.setAttribute('src', reelSrc);
+      reelVideo.preload = 'auto';
+      resumeReel();
+    }
+    if (document.readyState === 'complete') setTimeout(loadReel, 300);
+    else window.addEventListener('load', function () { setTimeout(loadReel, 300); });
     document.addEventListener('visibilitychange', function () {
       if (document.hidden) reelVideo.pause(); else resumeReel();
     });

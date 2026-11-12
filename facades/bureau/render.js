@@ -16,6 +16,7 @@ const esc = (s) => String(s)
   .replace(/"/g, '&quot;');
 
 const SOCIAL_LABELS = { instagram: 'Instagram', youtube: 'YouTube', linkedin: 'LinkedIn', whatsapp: 'WhatsApp' };
+const FONTS_URL = 'https://fonts.googleapis.com/css2?family=Bowlby+One&family=Inter:wght@400;600;700;800&display=swap';
 const SETUP_START = 3; /* étape en cours au chargement (comme la maquette) */
 
 /* Boutons de barre de titre : réduire, plein écran, fermer (data-act géré dans script.js) */
@@ -80,9 +81,15 @@ function renderHead(d, ctx) {
 <meta name="twitter:description" content="${esc(d.seo.description)}">
 <meta name="twitter:image" content="${c.shareImage.url}">
 
+<!-- Chargement : l'image d'attente du showreel (plus grand élément visible) passe en premier -->
+<link rel="preload" as="image" href="${ctx.base}img/reel-poster.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="${ctx.base}img/bliss.webp" type="image/webp">
+
+<!-- Polices : chargées sans bloquer l'affichage (font-display: swap) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="${FONTS_URL}" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="${FONTS_URL}"></noscript>
 
 <link rel="stylesheet" href="${ctx.base}style.css">
 
@@ -134,7 +141,7 @@ function waveHeadline(lines) {
 
 function renderHero(d) {
   const c = d.copy.bureau;
-  const photo = facadeFile('pdp-msn.jpg') ? '{BASE}img/pdp-msn.jpg' : '/assets/hero.jpg';
+  const photo = facadeFile('pdp.webp') ? '{BASE}img/pdp.webp' : '/assets/hero.jpg';
   const sr = d.showreel;
   const reelAttrs = `data-videos="${sr.youtubeId}" data-orientation="${sr.orientation}" data-title="${esc(c.playerTitle)}" data-fullscreen="1"`;
   return `
@@ -166,7 +173,8 @@ function renderHero(d) {
       <div class="b-win b-win--player b-float b-reveal" style="--d: -4.5s" id="showreel" data-reel>
         <div class="b-win__bar"><span class="b-win__title">${esc(c.playerTitle)}</span>${CONTROLS}</div>
         <div class="b-player__screen">
-          <video class="b-player__video" id="reelVideo" src="${sr.loop}" poster="${sr.poster}" autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-hidden="true" tabindex="-1"></video>
+          <!-- La vidéo (2,4 Mo) n'est téléchargée qu'une fois la page chargée : data-src est branché par script.js -->
+          <video class="b-player__video" id="reelVideo" data-src="${sr.loop}" poster="${sr.poster}" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1"></video>
           <button type="button" class="b-player__hit js-reel" aria-label="Lire le showreel" ${reelAttrs}><span class="b-player__play"><svg width="28" height="28" viewBox="0 0 14 14" fill="#10153A" aria-hidden="true"><path d="M3 1l10 6-10 6z"/></svg></span></button>
         </div>
         <div class="b-player__bar">
@@ -414,10 +422,13 @@ function renderFooter(d) {
 function render(d, ctx = { base: '' }) {
   const base = ctx.base || '';
   /* La vidéo du showreel est celle de la page d'accueil classique, déjà dans /assets. */
-  const data = { ...d, showreel: { ...d.showreel, loop: d.hero.video.src, poster: d.hero.video.poster } };
+  /* Image d'attente allégée propre à la façade (960 px) ; l'originale reste utilisée par la façade classique. */
+  const poster = facadeFile('reel-poster.webp') ? '{BASE}img/reel-poster.webp' : d.hero.video.poster;
+  const data = { ...d, showreel: { ...d.showreel, loop: d.hero.video.src, poster } };
   const html = [
     renderHead(data, { base }),
     renderNav(data),
+    '<main id="main">\n',
     renderHero(data),
     renderTicker(data),
     renderStats(data),
@@ -425,6 +436,7 @@ function render(d, ctx = { base: '' }) {
     renderProcess(data),
     renderReviews(data),
     renderContact(data),
+    '</main>\n',
     renderFooter(data)
   ].join('');
   return html.split('{BASE}').join(base);
