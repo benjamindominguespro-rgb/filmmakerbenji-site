@@ -233,10 +233,6 @@
     document.body.style.overflow = 'hidden';
     if (reelVideo) reelVideo.pause();
     closeBtn.focus();
-    /* Showreel : vrai plein écran quand le navigateur le permet (sinon la fenêtre couvre tout l'écran) */
-    if (isFull && box.requestFullscreen) {
-      try { box.requestFullscreen().catch(function () {}); } catch (e) { /* ignoré */ }
-    }
   }
 
   function close() {
@@ -245,9 +241,6 @@
     box.setAttribute('aria-hidden', 'true');
     stage.innerHTML = '';
     document.body.style.overflow = '';
-    if (document.fullscreenElement && document.exitFullscreen) {
-      try { document.exitFullscreen().catch(function () {}); } catch (e) { /* ignoré */ }
-    }
     resumeReel();
     if (opener && document.contains(opener)) opener.focus({ preventScroll: true });
   }
@@ -286,11 +279,6 @@
       }
     }
   });
-  /* Sortie du plein écran (touche Échap du navigateur) : on ferme aussi la fenêtre */
-  document.addEventListener('fullscreenchange', function () {
-    if (!document.fullscreenElement && isFull) close();
-  });
-
   /* ---------- Fenêtre du showreel : vidéo en boucle, barre de progression vivante ---------- */
   var reelFill = $('#reelFill');
   var reelTime = $('#reelTime');

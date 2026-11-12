@@ -610,10 +610,11 @@ button.b-tb { cursor: pointer; font: inherit; }
 .b-lb__win[data-orientation="vertical"] { width: auto; min-width: 280px; max-width: 100%; }
 .b-lb__win[data-orientation="vertical"] .b-lb__stage { aspect-ratio: 9 / 16; width: auto; height: min(74vh, 640px); }
 .b-lb__stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.b-lb--full { padding: 0; }
-.b-lb--full .b-lb__win { width: 100%; height: 100%; max-width: none; border: 0; border-radius: 0; box-shadow: none; display: flex; flex-direction: column; }
-.b-lb--full .b-lb__stage { flex: 1 1 auto; width: 100%; height: auto; aspect-ratio: auto; min-height: 0; }
-.b-lb--full .b-lb__win[data-orientation="vertical"] .b-lb__stage { width: 100%; height: auto; aspect-ratio: auto; }
+/* Showreel : grande fenêtre XP (jamais plein écran), fond grisé, bouton fermer toujours visible.
+   Largeur = la plus grande qui laisse la fenêtre entière dans l'écran (barre de titre ~46 px + marges). */
+.b-lb--full .b-lb__backdrop { background: rgba(20, 20, 24, 0.72); }
+.b-lb--full .b-lb__win { width: min(1280px, 100%, calc((100vh - 110px) * 16 / 9)); }
+.b-lb--full .b-lb__win[data-orientation="vertical"] .b-lb__stage { height: min(80vh, 760px); }
 .b-lb__nav { display: flex; justify-content: center; gap: 12px; padding: 10px; background: #1A1A2A; }
 .b-lb__nav[hidden] { display: none; }
 

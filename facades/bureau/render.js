@@ -167,7 +167,7 @@ function renderHero(d) {
         <div class="b-win__bar"><span class="b-win__title">${esc(c.playerTitle)}</span>${CONTROLS}</div>
         <div class="b-player__screen">
           <video class="b-player__video" id="reelVideo" src="${sr.loop}" poster="${sr.poster}" autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-hidden="true" tabindex="-1"></video>
-          <button type="button" class="b-player__hit js-reel" aria-label="Lire le showreel en plein écran" ${reelAttrs}><span class="b-player__play"><svg width="28" height="28" viewBox="0 0 14 14" fill="#10153A" aria-hidden="true"><path d="M3 1l10 6-10 6z"/></svg></span></button>
+          <button type="button" class="b-player__hit js-reel" aria-label="Lire le showreel" ${reelAttrs}><span class="b-player__play"><svg width="28" height="28" viewBox="0 0 14 14" fill="#10153A" aria-hidden="true"><path d="M3 1l10 6-10 6z"/></svg></span></button>
         </div>
         <div class="b-player__bar">
           <div class="b-player__track"><div class="b-player__fill" id="reelFill"></div></div>
@@ -388,7 +388,7 @@ function renderFooter(d) {
   </div>
 </footer>
 
-<!-- LECTEUR : fenêtre vidéo (showreel en plein écran, dossiers en fenêtre) -->
+<!-- LECTEUR : fenêtre vidéo (showreel en grande fenêtre, dossiers en fenêtre standard) -->
 <div class="b-lb" id="lightbox" aria-hidden="true">
   <div class="b-lb__backdrop" data-close></div>
   <div class="b-win b-lb__win" role="dialog" aria-modal="true" aria-labelledby="lbTitle">

@@ -165,7 +165,8 @@ module.exports = {
           "videos": [
             "KhQKQmDliG4",
             "er0m_RUpfr4",
-            "VqQf3grUOeo"
+            "VqQf3grUOeo",
+            "2Sy5t4U87Xw"
           ],
           "card": {
             "file": "ads_pole_sportif.mp4",
