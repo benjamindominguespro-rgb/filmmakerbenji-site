@@ -845,3 +845,9 @@ body.b-grabbing, body.b-grabbing * { cursor: grabbing !important; user-select: n
   .b-grid--videos { grid-template-columns: 1fr; }
   .b-grid--videos.is-vertical { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* Téléphone : le fond Bliss n'affiche que son centre, on sert donc la version recadrée (1000 px, 58 Ko au lieu de 202 Ko), même échelle et même cadrage. */
+@media (max-width: 520px) {
+  .b-hero::before { min-width: 1000px; background-image: url('img/bliss-m.webp'); }
+  .b-contact { background-image: url('img/bliss-m.webp'); }
+}

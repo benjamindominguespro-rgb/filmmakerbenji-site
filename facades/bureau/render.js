@@ -62,7 +62,10 @@ function renderHead(d, ctx) {
 <title>${esc(d.seo.title)}</title>
 <meta name="description" content="${esc(d.seo.description)}">
 <link rel="canonical" href="${url}">
-<link rel="icon" type="image/svg+xml" href="${d.site.favicon}">
+<!-- Icône du site (onglet, résultats Google) : le perso sur le fond Windows XP ; Google veut un carré multiple de 48 px -->
+<link rel="icon" type="image/png" sizes="48x48" href="${ctx.base}img/favicon-48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="${ctx.base}img/favicon-96.png">
+<link rel="apple-touch-icon" href="${ctx.base}img/apple-touch-icon.png">
 <script>document.documentElement.className += ' js';</script>
 
 <!-- Open Graph -->
@@ -83,7 +86,8 @@ function renderHead(d, ctx) {
 
 <!-- Chargement : l'image d'attente du showreel (plus grand élément visible) passe en premier -->
 <link rel="preload" as="image" href="${ctx.base}img/reel-poster.webp" type="image/webp" fetchpriority="high">
-<link rel="preload" as="image" href="${ctx.base}img/bliss.webp" type="image/webp">
+<link rel="preload" as="image" href="${ctx.base}img/bliss-m.webp" type="image/webp" media="(max-width: 520px)">
+<link rel="preload" as="image" href="${ctx.base}img/bliss.webp" type="image/webp" media="(min-width: 521px)">
 
 <!-- Polices : chargées sans bloquer l'affichage (font-display: swap) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
